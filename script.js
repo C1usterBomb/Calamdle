@@ -37,7 +37,7 @@ function preload() {
   guessButton = new Clickable();
   guessButton.image = loadImage('playbutton.png');
 }
-// e
+
 function setup() {
   var cnv = createCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight - 20 + 1000);
   cnv.style('display', 'block');

@@ -698,7 +698,7 @@ Herring Staff,images/HerringStaff.png,Summon,15,1,2,3,1,0,None
 Hive Pod,images/HivePod.png,Summon,125,3,4,7,1,0,None
 Igneous Exaltation,images/IgneousExaltation.png,Summon,34,4,3,5,1,0,None
 Infected Remote,images/InfectedRemote.png,Summon,50,4,4,8,0,0,Donor
-King of Constellations, Tenryū,images/KingofConstellationsTenryu.png,Summon,213,2,3,12,1,0,Donor
+"King of Constellations, Tenryu",images/KingofConstellationsTenryu.png,Summon,213,2,3,12,1,0,Donor
 Metastasis,images/Metastasis.png,Summon,400,2,5,15,0,0,None
 Midnight Sun Beacon,images/MidnightSunBeacon.png,Summon,150,1,5,15,1,0,None
 Mirror of Kalandra,images/MirrorofKalandra.png,Summon,380,3,2,14,1,0,Donor
