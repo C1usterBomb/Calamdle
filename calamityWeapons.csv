@@ -1,0 +1,747 @@
+name,image,class,damage,knockback,speed,rarityid,autoswing,material,dedication
+Dragoon Drizzlefish,images/DragoonDrizzlefish.png,Ranged,18,1,4,3,1,0,None
+Sparkling Empress,images/SparklingEmpress.png,Magic,10,0,4,2,0,0,None
+Frequency Manipulator,images/FrequencyManipulator.png,Rogue,80,4,0,5,1,0,None
+Galvanizing Glaive,images/GalvanizingGlaive.png,Melee,130,6,4,8,1,0,None
+Gatling Laser,images/GatlingLaser.png,Magic,43,1,7,8,0,0,None
+Gauss Dagger,images/GaussDagger.png,True Melee,25,5,3,3,1,0,None
+Gauss Pistol,images/GaussPistol.png,Magic,150,7,4,5,1,0,None
+Gauss Rifle,images/GaussRifle.png,Ranged,150,8,2,8,1,0,None
+Heavy Laser Rifle,images/HeavyLaserRifle.png,Ranged,210,3,3,12,1,0,None
+Matter Modulator,images/MatterModulator.png,Ranged,100,7,2,5,1,0,None
+Mounted Scanner,images/MountedScanner.png,Summon,41,2,3,5,1,0,None
+Phaseslayer,images/Phaseslayer.png,Melee,980,5,3,14,1,0,None
+Plasma Caster,images/PlasmaCaster.png,Magic,705,5,1,12,1,0,None
+Plasma Grenade,images/PlasmaGrenade.png,Rogue,950,2,2,14,1,0,None
+Pole Warper,images/PoleWarper.png,Summon,310,6,6,14,1,0,None
+Pulse Dragon,images/PulseDragon.png,Melee,300,6,4,12,1,0,None
+Pulse Pistol,images/PulsePistol.png,Magic,26,0,4,3,1,0,None
+Pulse Rifle,images/PulseRifle.png,Ranged,1200,0,2,14,1,0,None
+Pulse Turret Remote,images/PulseTurretRemote.png,Summon,150,0,3,8,1,0,None
+Snake Eyes,images/SnakeEyes.png,Summon,200,2,5,12,1,0,None
+Star Swallower Containment Unit,images/StarSwallowerContainmentUnit.png,Summon,24,2,2,3,1,0,None
+System Bane,images/SystemBane.png,Rogue,45,3,4,8,1,0,None
+Taser,images/Taser.png,Ranged,15,0,3,3,1,0,None
+Tesla Cannon,images/TeslaCannon.png,Magic,1220,7,0,14,1,0,None
+The Anomaly's Nanogun,images/TheAnomalysNanogun.png,Ranged,1850,4,0,14,0,0,Donor
+Tracking Disk,images/TrackingDisk.png,Rogue,16,2,1,3,1,1,None
+Wave Pounder,images/WavePounder.png,Rogue,75,0,0,12,1,0,None
+Abyssal Tome,images/AbyssalTome.png,Magic,33,4,3,4,1,1,None
+Abyss Shocker,images/AbyssShocker.png,Magic,28,0,4,3,1,0,Donor
+Acid Gun,images/AcidGun.png,Magic,28,1,1,2,1,0,None
+Aetherflux Cannon,images/AetherfluxCannon.png,Magic,285,3,2,15,1,0,None
+Aether's Whisper,images/AethersWhisper.png,Magic,504,4,3,12,1,0,None
+Alpha Ray,images/AlphaRay.png,Magic,160,1,7,14,1,0,None
+Alula Australis,images/AlulaAustralis.png,Magic,65,2,4,7,1,0,None
+Anahita's Arpeggio,images/AnahitasArpeggio.png,Magic,92,5,4,7,1,0,None
+Apoctosis Array,images/ApoctosisArray.png,Magic,99,5,6,10,1,0,None
+Apotheosis,images/Apotheosis.png,Magic,230,5,0,16,1,0,Developer
+Aquamarine Staff,images/AquamarineStaff.png,Magic,17,2,4,2,1,1,None
+Arch Amaryllis,images/ArchAmaryllis.png,Magic,58,6,3,10,1,1,None
+Arctic Bear Paw,images/ArcticBearPaw.png,Magic,90,7,3,6,1,0,None
+Art Attack,images/ArtAttack.png,Magic,80,2,3,7,1,0,Donor
+Asteroid Staff,images/AsteroidStaff.png,Magic,145,5,5,10,1,0,None
+Astralachnea Staff,images/AstralachneaStaff.png,Magic,50,4,4,7,1,0,None
+Astral Staff,images/AstralStaff.png,Magic,245,4,4,9,1,0,None
+Atlantis,images/Atlantis.png,Magic,82,4,3,7,1,1,None
+Augur of the Elements,images/AuguroftheElements.png,Magic,131,4,6,11,1,1,None
+Belching Saxophone,images/BelchingSaxophone.png,Magic,32,2,5,5,1,0,None
+Biofusillade,images/Biofusillade.png,Magic,107,2,7,12,1,0,None
+Black Anurian,images/BlackAnurian.png,Magic,21,2,5,3,1,1,None
+Blood Bath,images/BloodBath.png,Magic,31,4,4,3,1,0,None
+Brimrose Staff,images/BrimroseStaff.png,Magic,45,5,4,5,1,0,None
+Burning Sea,images/BurningSea.png,Magic,75,5,4,5,1,0,None
+Clamor Noctus,images/ClamorNoctus.png,Magic,270,4,4,13,1,0,None
+Clothier's Wrath,images/ClothiersWrath.png,Magic,80,2,4,4,1,0,None
+Coral Spout,images/CoralSpout.png,Magic,8,2,3,2,1,0,None
+Cosmic Rainbow,images/CosmicRainbow.png,Magic,105,0,2,9,1,1,None
+Cryophobia,images/Cryophobia.png,Magic,96,1,1,6,1,0,None
+Dark Spark,images/DarkSpark.png,Magic,60,0,5,13,0,0,Donor
+Deathhail Staff,images/DeathhailStaff.png,Magic,328,3,5,14,1,0,None
+Death Valley Duster,images/DeathValleyDuster.png,Magic,123,4,3,5,1,1,None
+Divine Retribution,images/DivineRetribution.png,Magic,48,3,5,12,1,0,Donor
+Downpour,images/Downpour.png,Magic,50,2,4,5,1,0,None
+Effervescence,images/Effervescence.png,Magic,60,3,4,10,1,0,None
+Eidolic Wail,images/EidolicWail.png,Magic,1248,1,1,13,1,0,None
+Eidolon Staff,images/EidolonStaff.png,Magic,180,2,4,13,1,0,None
+Eldritch Tome,images/EldritchTome.png,Magic,42,3,6,4,1,1,None
+Elemental Ray,images/ElementalRay.png,Magic,70,6,4,11,1,1,None
+Eternity,images/Eternity.png,Magic,840,0,0,16,1,0,Developer
+Event Horizon,images/EventHorizon.png,Magic,200,3,2,14,1,1,None
+Everglade Spray,images/EvergladeSpray.png,Magic,28,4,6,7,1,0,None
+Fabstaff,images/Fabstaff.png,Magic,125,4,4,16,1,0,Developer
+Face Melter,images/FaceMelter.png,Magic,165,4,7,14,1,0,Donor
+Fate's Reveal,images/FatesReveal.png,Magic,120,4,4,13,1,0,None
+Flare Bolt,images/FlareBolt.png,Magic,42,4,2,3,1,1,None
+Forbidden Sun,images/ForbiddenSun.png,Magic,80,5,2,8,1,1,None
+Frigidflash Bolt,images/FrigidflashBolt.png,Magic,80,4,4,4,1,1,None
+Frost Bolt,images/FrostBolt.png,Magic,14,3,4,2,1,1,None
+Genisis,images/Genisis.png,Magic,70,1,7,10,1,1,None
+Ghastly Visage,images/GhastlyVisage.png,Magic,120,4,3,13,0,0,None
+Gleaming Magnolia,images/GleamingMagnolia.png,Magic,53,4,3,5,1,1,None
+Glorious End,images/GloriousEnd.png,Magic,120,7,2,4,0,0,Donor
+Gruesome Eminence,images/GruesomeEminence.png,Magic,666,4,3,15,0,0,None
+Hadal Urn,images/HadalUrn.png,Magic,32,2,5,7,1,0,Donor
+Harvest Staff,images/HarvestStaff.png,Magic,26,4,3,2,1,0,None
+Helium Flash,images/HeliumFlash.png,Magic,1800,7,1,15,1,0,None
+Hellwing Staff,images/HellwingStaff.png,Magic,22,4,2,3,1,0,None
+Hematemesis,images/Hematemesis.png,Magic,75,3,4,8,1,0,None
+Heresy,images/Heresy.png,Magic,960,0,0,15,1,1,None
+Hyphae Rod,images/HyphaeRod.png,Magic,22,2,3,2,1,0,None
+Ice Barrage,images/IceBarrage.png,Magic,2250,4,0,14,0,0,Donor
+Icicle Staff,images/IcicleStaff.png,Magic,10,2,6,1,1,1,None
+Icicle Trident,images/IcicleTrident.png,Magic,69,5,3,5,1,0,None
+Infernal Rift,images/InfernalRift.png,Magic,50,5,1,8,1,1,None
+Ion Blaster,images/IonBlaster.png,Magic,29,4,5,5,1,1,None
+Keelhaul,images/Keelhaul.png,Magic,55,2,2,8,1,0,Donor
+Lashes of Chaos,images/LashesofChaos.png,Magic,65,6,1,7,1,1,None
+Lazhar,images/Lazhar.png,Magic,76,4,6,10,1,1,None
+Light God's Brilliance,images/LightGodsBrilliance.png,Magic,111,2,7,14,1,0,Donor
+Mad Alchemist's Cocktail Glove,images/MadAlchemistsCocktailGlove.png,Magic,240,2,4,11,1,0,Donor
+Magnetic Meltdown,images/MagneticMeltdown.png,Magic,100,3,0,12,1,1,None
+Mana Rose,images/ManaRose.png,Magic,20,3,1,2,1,1,None
+Miasma,images/Miasma.png,Magic,40,2,3,5,1,0,None
+Mistlestorm,images/Mistlestorm.png,Magic,54,3,6,12,1,0,None
+Nano Purge,images/NanoPurge.png,Magic,60,2,4,10,1,1,None
+Nebulous Cataclysm,images/NebulousCataclysm.png,Magic,510,4,2,14,0,0,Donor
+Night's Ray,images/NightsRay.png,Magic,17,3,4,4,1,1,None
+Nuclear Fury,images/NuclearFury.png,Magic,108,4,3,10,1,1,None
+Parasitic Scepter,images/ParasiticSceptor.png,Magic,12,2,2,2,1,0,None
+Phantasmal Fury,images/PhantasmalFury.png,Magic,260,6,4,13,1,1,None
+Phoenix Flame Barrage,images/PhoenixFlameBarrage.png,Magic,140,3,4,15,1,0,None
+Plague Staff,images/PlagueStaff.png,Magic,70,6,4,8,1,0,None
+Plasma Rifle,images/PlasmaRifle.png,Magic,150,3,6,12,1,0,None
+Plasma Rod,images/PlasmaRod.png,Magic,8,2,4,1,1,1,None
+Poseidon,images/Poseidon.png,Magic,52,4,0,5,1,1,None
+Primordial Ancient,images/PrimordialAncient.png,Magic,145,4,4,14,1,0,None
+Primordial Earth,images/PrimordialEarth.png,Magic,46,5,4,8,1,1,None
+Purge Guzzler,images/PurgeGuzzler.png,Magic,120,4,3,12,1,1,None
+Rainbow Party Cannon,images/RainbowPartyCannon.png,Magic,225,3,3,16,1,0,Developer
+Rancor,images/Rancor.png,Magic,220,4,3,15,0,0,None
+Recitation of the Beast,images/RecitationoftheBeast.png,Magic,128,6,4,14,1,0,None
+Relic of Ruin,images/RelicofRuin.png,Magic,21,4,2,5,1,1,None
+Rouge Slash,images/RougeSlash.png,Magic,119,6,4,11,1,0,None
+Sandstream Scepter,images/SandstreamScepter.png,Magic,16,1,4,2,1,0,None
+Sanguine Flare,images/SanguineFlare.png,Magic,143,6,3,12,1,0,None
+Seething Discharge,images/SeethingDischarge.png,Magic,52,5,3,5,1,0,None
+Serpentine,images/Serpentine.png,Magic,10,2,2,4,1,0,None
+Shadecrystal Barrage,images/ShadecrystalTome.png,Magic,25,4,6,5,1,1,None
+Shaderain Staff,images/ShaderainStaff.png,Magic,21,0,3,3,1,0,None
+Shadowbolt Staff,images/ShadowboltStaff.png,Magic,280,6,5,13,1,1,None
+Shifting Sands,images/ShiftingSands.png,Magic,76,4,2,7,1,0,None
+SHPC,images/SHPC.png,Magic,18,3,6,5,1,0,None
+Sky Glaze,images/SkyGlaze.png,Magic,15,3,3,1,1,1,None
+Slithering Eels,images/SlitheringEels.png,Magic,50,2,1,5,1,0,None
+Snowstorm Staff,images/SnowstormStaff.png,Magic,49,4,0,5,1,1,None
+Soul Piercer,images/SoulPiercer.png,Magic,310,6,3,14,1,0,None
+Staff of Blushie,images/StaffofBlushie.png,Magic,1,1,2,16,0,0,Developer
+Star Shower,images/StarShower.png,Magic,57,3,5,9,1,1,None
+Subsuming Vortex,images/SubsumingVortex.png,Magic,466,4,4,15,1,0,None
+Tactician's Trump Card,images/TacticiansTrumpCard.png,Magic,248,5,5,12,1,0,Donor
+Tears of Heaven,images/TearsofHeaven.png,Magic,45,4,4,8,1,1,None
+Terra Ray,images/TerraRay.png,Magic,60,3,3,8,1,1,None
+The Dance of Light,images/TheDanceofLight.png,Magic,415,3,6,16,1,0,Developer
+The Prince,images/ThePrince.png,Magic,166,4,4,12,1,0,Donor
+The Swarmer,images/TheSwarmer.png,Magic,36,0,5,10,1,0,None
+The Wand,images/TheWand.png,Magic,14,1,4,15,1,0,None
+Thorn Blossom,images/ThornBlossom.png,Magic,90,2,3,12,1,0,None
+Thunderstorm,images/Thunderstorm.png,Magic,132,2,3,12,1,0,None
+Tome of Fates,images/TomeofFates.png,Magic,110,3,7,9,1,1,None
+Tradewinds,images/Tradewinds.png,Magic,25,4,5,3,1,1,None
+Ultra Liquidator,images/UltraLiquidator.png,Magic,120,4,4,11,1,1,None
+Undine's Retribution,images/UndinesRetribution.png,Magic,38,3,4,7,1,1,None
+Valkyrie Ray,images/ValkyrieRay.png,Magic,53,6,0,5,1,1,None
+Veering Wind,images/VeeringWind.png,Magic,15,7,2,2,1,0,Donor
+Vehemence,images/Vehemence.png,Magic,6666,4,1,15,1,0,None
+Venusian Trident,images/VenusianTrident.png,Magic,256,6,3,13,1,1,None
+Vesuvius,images/Vesuvius.png,Magic,50,2,4,8,1,0,None
+Viscera,images/Viscera.png,Magic,100,4,5,12,1,0,None
+Vitriolic Viper,images/VitriolicViper.png,Magic,93,3,4,13,1,0,None
+Vivid Clarity,images/VividClarity.png,Magic,133,6,3,15,1,0,None
+Void Vortex,images/VoidVortex.png,Magic,110,0,0,15,1,0,None
+Voltaic Climax,images/VoltaicClimax.png,Magic,104,4,2,14,1,1,None
+Waywasher,images/Waywasher.png,Magic,16,2,4,2,1,0,None
+Wingman,images/Wingman.png,Magic,70,2,4,8,1,1,None
+Winter's Fury,images/WintersFury.png,Magic,70,4,5,8,1,0,None
+Wrath of the Ancients,images/WrathoftheAncients.png,Magic,47,4,1,8,1,1,None
+Wulfrum Prosthesis,images/WulfrumProsthesis.png,Magic,18,2,3,1,1,0,None
+Wyvern's Call,images/WyvernsCall.png,Magic,65,4,3,5,1,1,None
+Yharim's Crystal,images/YharimsCrystal.png,Magic,65,0,5,15,0,0,None
+Absolute Zero,images/AbsoluteZero.png,Melee,105,3,4,8,1,0,None
+Abyss Blade,images/AbyssBlade.png,Melee,130,6,4,7,1,1,None
+Aegis Blade,images/AegisBlade.png,True Melee,108,4,4,8,1,0,None
+Aftershock,images/Aftershock.png,True Melee,65,6,3,5,1,0,None
+Air Spinner,images/AirSpinner.png,Melee,26,3,4,3,1,0,None
+Amidias' Trident,images/AmidiasTrident.png,Melee,12,4,4,2,1,1,None
+Anarchy Blade,images/AnarchyBlade.png,True Melee,150,6,4,8,1,1,None
+Aorta,images/Aorta.png,Melee,29,4,4,3,1,0,None
+Ark of the Cosmos,images/ArkoftheCosmos.png,Melee,1700,7,4,15,1,0,None
+Ark of the Elements,images/ArkoftheElements.png,Melee,560,6,4,11,1,1,None
+Astral Blade,images/AstralBlade.png,True Melee,85,3,5,9,1,0,None
+Astral Pike,images/AstralPike.png,True Melee,90,6,5,9,1,0,None
+Astral Scythe,images/AstralScythe.png,Melee,120,4,4,7,1,0,None
+Ataraxia,images/Ataraxia.png,Melee,432,2,4,15,1,0,Donor
+Avalanche,images/Avalanche.png,True Melee,100,6,2,5,1,1,None
+Azathoth,images/Azathoth.png,Melee,80,4,4,16,1,0,Developer
+Baleful Harvester,images/BalefulHarvester.png,True Melee,90,6,4,10,1,1,None
+Ball O' Fugu,images/BallOFugu.png,Melee,40,6,4,3,1,1,None
+Banshee Hook,images/BansheeHook.png,Melee,250,6,4,13,1,0,None
+Basher,images/Basher.png,True Melee,30,5,3,1,1,0,None
+Bladecrest Oathsword,images/BladecrestOathsword.png,Melee,26,3,4,3,1,1,None
+Blighted Cleaver,images/BlightedCleaver.png,Melee,64,4,3,8,1,1,None
+Bonebreaker,images/Bonebreaker.png,Melee,45,5,4,5,1,1,None
+Brimlance,images/Brimlance.png,True Melee,50,6,4,5,1,0,None
+Brimlash,images/Brimlash.png,Melee,70,4,2,7,1,0,None
+Brimstone Sword,images/BrimstoneSword.png,Melee,70,6,3,5,1,0,None
+Briny Baron,images/BrinyBaron.png,Melee,182,3,4,8,1,0,None
+Broken Biome Blade,images/BrokenBiomeBlade.png,Melee,47,4,2,3,1,1,None
+Burnt Sienna,images/BurntSienna.png,True Melee,32,4,4,1,1,1,None
+Carnage,images/Carnage.png,True Melee,130,4,4,4,1,0,None
+Catastrophe Claymore,images/CatastropheClaymore.png,Melee,85,5,3,6,1,1,None
+Celestial Claymore,images/CelestialClaymore.png,Melee,70,4,4,4,1,0,None
+Clam Crusher,images/ClamCrusher.png,Melee,150,7,0,5,1,0,None
+Comet Quasher,images/CometQuasher.png,True Melee,160,6,4,8,1,1,None
+Cosmic Discharge,images/CosmicDischarge.png,Melee,400,1,4,14,1,1,None
+Cosmic Shiv,images/CosmicShiv.png,Melee,98,6,4,14,1,0,Donor
+Crescent Moon,images/CrescentMoon.png,Melee,380,3,4,13,1,0,None
+Darklight Greatsword,images/DarklightGreatsword.png,Melee,75,4,2,5,1,0,None
+Death's Ascension,images/DeathsAscension.png,Melee,1200,6,3,13,0,0,Donor
+Defiled Greatsword,images/DefiledGreatsword.png,Melee,124,6,4,12,1,0,None
+Devastation,images/Devastation.png,Melee,132,4,3,10,1,1,None
+Devil's Devastation,images/DevilsDevastation.png,Melee,166,5,4,14,1,0,None
+Devil's Sunrise,images/DevilsSunrise.png,True Melee,480,3,7,12,0,0,Donor
+Diseased Pike,images/DiseasedPike.png,True Melee,65,6,4,8,1,0,None
+Draconic Destruction,images/DraconicDestruction.png,Melee,250,6,3,16,1,0,Developer
+Dragon Pow,images/DragonPow.png,Melee,660,6,4,15,1,0,Donor
+Dragon Rage,images/DragonRage.png,True Melee,1075,6,3,15,1,0,None
+Earth,images/Earth.png,True Melee,170,7,4,16,1,0,Developer
+Earthen Pike,images/EarthenPike.png,Melee,90,5,3,5,1,0,None
+Elemental Lance,images/ElementalLance.png,Melee,160,7,2,11,1,1,None
+Elemental Shiv,images/ElementalShiv.png,Melee,190,6,5,11,1,1,None
+Empyrean Knives,images/EmpyreanKnives.png,Melee,230,2,4,14,1,1,None
+Entropic Claymore,images/EntropicClaymore.png,Melee,90,4,3,9,1,1,None
+Essence Flayer,images/EssenceFlayer.png,Melee,225,6,4,14,1,0,None
+Eutrophic Scimitar,images/EutrophicScimitar.png,Melee,110,2,1,4,1,0,None
+Evil Smasher,images/EvilSmasher.png,True Melee,120,4,1,4,1,0,None
+Exalted Oathblade,images/ExaltedOathblade.png,Melee,150,6,3,8,1,1,None
+Excelsus,images/Excelsus.png,Melee,250,6,4,14,1,1,None
+Exoblade,images/Exoblade.png,Melee,915,6,0,15,1,0,None
+Fallen Paladin's Hammer,images/FallenPaladinsHammer.png,Melee,368,8,0,8,1,1,None
+Fault Line,images/FaultLine.png,Melee,75,3,4,8,1,0,None
+Feralthorn Claymore,images/FeralthornClaymore.png,True Melee,80,6,5,7,1,0,None
+Flarefrost Blade,images/FlarefrostBlade.png,Melee,125,5,3,5,1,1,None
+Floodtide,images/Floodtide.png,Melee,75,4,4,7,1,1,None
+Forbidden Oathblade,images/ForbiddenOathblade.png,Melee,110,5,0,5,1,1,None
+Forsaken Saber,images/ForsakenSaber.png,Melee,80,4,4,5,1,1,None
+Galaxia,images/FourSeasonsGalaxia.png,Melee,800,6,0,14,1,1,None
+Fractured Ark,images/FracturedArk.png,Melee,35,5,4,4,1,1,None
+Gael's Greatsword,images/GaelsGreatsword.png,Melee,670,6,5,15,1,0,Developer
+Galactus Blade,images/GalactusBlade.png,Melee,84,4,4,12,1,1,None
+Galaxy Smasher,images/GalaxySmasher.png,Melee,1300,8,1,14,1,1,None
+Galileo Gladius,images/GalileoGladius.png,Melee,92,7,5,13,1,0,None
+Gelitic Blade,images/GeliticBlade.png,Melee,38,4,2,4,1,1,None
+Gilded Proboscis,images/GildedProboscis.png,True Melee,315,6,4,11,1,0,None
+Goldplume Spear,images/GoldplumeSpear.png,Melee,24,4,3,3,1,0,None
+Grand Guardian,images/GrandGuardian.png,True Melee,150,6,4,10,1,1,None
+Greatsword of Judgement,images/GreatswordofJudgement.png,Melee,40,5,4,10,1,1,None
+Greentide,images/Greentide.png,True Melee,95,5,3,7,1,0,None
+Hellfire Flamberge,images/HellfireFlamberge.png,Melee,90,6,4,8,1,0,None
+Hellion Flower Spear,images/HellionFlowerSpear.png,Melee,135,6,4,7,1,0,None
+Hellkite,images/Hellkite.png,True Melee,180,6,2,7,1,1,None
+Holy Collider,images/HolyCollider.png,True Melee,270,6,4,12,1,0,None
+Illustrious Knives,images/IllustriousKnives.png,Melee,400,2,5,16,1,0,Developer
+Insidious Impaler,images/InsidiousImpaler.png,Melee,320,6,4,13,1,0,None
+Iridescent Excalibur,images/IridescentExcalibur.png,Melee,2000,6,5,15,1,0,None
+Lacerator,images/Lacerator.png,Melee,130,5,4,12,1,0,None
+Lifehunt Scythe,images/LifefruitScythe.png,Melee,156,6,4,12,1,0,None
+Lion Heart,images/LionHeart.png,True Melee,323,4,4,13,1,0,Donor
+Lucrecia,images/Lucrecia.png,Melee,90,6,2,8,1,0,None
+Majestic Guard,images/MajesticGuard.png,True Melee,70,6,4,5,1,1,None
+Mantis Claws,images/MantisClaws.png,True Melee,144,5,6,7,1,0,None
+Mirror Blade,images/MirrorBlade.png,Melee,100,5,5,12,1,0,None
+Monstrous Knives,images/MonstrousKnives.png,Melee,9,2,4,2,1,1,Donor
+Mourningstar,images/Mourningstar.png,Melee,112,2,5,12,1,1,None
+Murasama,images/Murasama.png,True Melee,2222,5,7,15,0,0,None
+Mycelial Claws,images/MycelialClaws.png,True Melee,28,3,6,2,1,0,None
+Nadir,images/Nadir.png,Melee,365,6,4,15,1,0,Donor
+Nebulash,images/Nebulash.png,Melee,60,2,4,7,1,0,None
+Neptune's Bounty,images/NeptunesBounty.png,Melee,270,6,4,13,1,0,None
+Oblivion,images/Oblivion.png,Melee,55,3,4,7,1,0,None
+Old Lord Claymore,images/OldLordClaymore.png,True Melee,60,5,2,3,1,1,None
+True Biome Blade,images/OmegaBiomeBlade.png,Melee,200,6,4,9,1,1,None
+Omniblade,images/Omniblade.png,True Melee,100,4,5,8,1,0,None
+The Oracle,images/Oracle.png,Melee,170,3,4,15,1,0,Donor
+Orderbringer,images/Orderbringer.png,Melee,128,5,4,14,1,1,None
+Pandemic,images/Pandemic.png,Melee,100,2,4,8,1,0,None
+Perfect Dark,images/PerfectDark.png,Melee,24,4,3,3,1,0,None
+Phosphorescent Gauntlet,images/PhosphorescentGauntlet.png,True Melee,2705,6,1,13,1,0,None
+Plague Keeper,images/PlagueKeeper.png,Melee,80,4,4,10,1,0,None
+Prismatic Breaker,images/PrismaticBreaker.png,Melee,699,5,5,14,1,0,Donor
+Pwnagehammer,images/Pwnagehammer.png,Melee,210,7,0,6,1,1,None
+Quagmire,images/Quagmire.png,Melee,52,3,4,7,1,0,None
+Red Sun,images/RedSun.png,Melee,500,3,3,16,1,0,Developer
+Redtide Spear,images/RedtideSpear.png,Melee,25,4,3,2,1,0,None
+Rem's Revenge,images/RemsRevenge.png,Melee,375,7,4,10,1,0,Donor
+Riptide,images/Riptide.png,Melee,12,1,3,2,1,0,None
+Roxcalibur,images/Roxcalibur.png,Melee,180,8,0,4,0,0,Donor
+Sahara Slicers,images/SaharaSlicers.png,True Melee,23,4,5,2,1,0,None
+Sausage Maker,images/SausageMaker.png,True Melee,36,5,4,3,1,0,None
+Scourge of the Cosmos,images/ScourgeoftheCosmos.png,Melee,478,4,4,14,1,0,None
+Seashine Sword,images/SeashineSword.png,Melee,26,2,2,2,1,0,None
+Seeking Scorcher,images/SeekingScorcher.png,Melee,232,6,4,12,1,0,None
+Shimmerspark,images/Shimmerspark.png,Melee,41,3,3,5,1,0,None
+Smoking Comet,images/SmokingComet.png,Melee,14,1,3,2,1,0,Donor
+Solar Flare,images/SolarFlare.png,Melee,120,6,4,12,1,1,None
+Solstice Claymore,images/SolsticeClaymore.png,Melee,300,5,4,10,1,1,None
+Soul Edge,images/SoulEdge.png,Melee,210,4,3,13,1,0,None
+Soul Harvester,images/SoulHarvester.png,Melee,85,6,4,8,1,0,None
+Spine of Thanatos,images/SpineOfThanatos.png,Melee,128,6,3,15,1,0,None
+Starnight Lance,images/StarnightLance.png,Melee,110,4,3,5,1,0,None
+Stellar Contempt,images/StellarContempt.png,Melee,650,8,1,10,1,1,None
+Stellar Striker,images/StellarStriker.png,True Melee,480,6,3,10,1,0,None
+Storm Ruler,images/StormRuler.png,Melee,80,5,3,10,1,0,None
+Storm Saber,images/StormSaber.png,Melee,66,4,3,5,1,1,None
+Stream Gouge,images/StreamGouge.png,Melee,440,7,4,14,1,0,None
+Stygian Shield,images/StygianShield.png,Melee,250,4,1,8,0,0,Donor
+Submarine Shocker,images/SubmarineShocker.png,True Melee,90,5,5,5,1,0,None
+Sulphurous Grabber,images/SulphurousGrabber.png,Melee,40,3,3,5,0,0,None
+Swordsplosion,images/Swordsplosion.png,Melee,48,5,2,11,1,0,None
+Tainted Blade,images/TaintedBlade.png,True Melee,60,4,3,2,1,1,None
+Teardrop Cleaver,images/TeardropCleaver.png,True Melee,45,4,3,2,1,0,None
+Tenebreus Tides,images/TenebreusTides.png,Melee,120,4,5,9,1,0,Donor
+Terra Lance,images/TerraLance.png,Melee,88,6,4,8,1,1,None
+Terratomere,images/Terratomere.png,Melee,370,5,4,12,1,1,None
+Terror Blade,images/TerrorBlade.png,Melee,560,6,4,13,1,0,None
+The Burning Sky,images/TheBurningSky.png,Melee,147,2,6,15,1,0,None
+The Enforcer,images/TheEnforcer.png,True Melee,890,6,4,14,1,0,None
+The God's Gambit,images/TheGodsGambit.png,Melee,29,3,4,4,1,0,None
+The Last Mourning,images/TheLastMourning.png,True Melee,360,6,4,13,1,0,Donor
+The Microwave,images/TheMicrowave.png,Melee,111,2,4,9,1,0,None
+The Mutilator,images/TheMutilator.png,True Melee,483,6,4,12,1,0,None
+The Obliterator,images/TheObliterator.png,Melee,220,6,4,14,1,1,None
+Titan Arm,images/TitanArm.png,True Melee,69,8,5,7,1,1,None
+Triactis' True Paladinian Mage-Hammer of Might,images/TriactisTruePaladinianMageHammerofMightMelee.png,Melee,2000,8,5,16,1,0,Developer
+Ark of the Ancients,images/TrueArkoftheAncients.png,Melee,188,5,3,8,1,1,None
+Biome Blade,images/TrueBiomeBlade.png,Melee,80,6,4,6,1,1,None
+Caustic Edge,images/TrueCausticEdge.png,Melee,100,4,3,4,1,1,None
+Tumbleweed,images/Tumbleweed.png,Melee,125,6,4,7,1,1,None
+Typhon's Greed,images/TyphonsGreed.png,Melee,60,4,2,7,1,0,None
+Ultimus Cleaver,images/UltimusCleaver.png,True Melee,130,6,4,8,1,0,None
+Urchin Flail,images/UrchinFlail.png,Melee,20,4,3,2,1,1,None
+Urchin Mace,images/UrchinMace.png,Melee,23,3,4,2,0,0,None
+Vein Burster,images/VeinBurster.png,Melee,42,4,1,3,1,0,None
+Violence,images/Violence.png,Melee,435,6,3,15,1,0,None
+Virulence,images/Virulence.png,Melee,100,4,4,8,1,1,None
+Vulcanite Lance,images/VulcaniteLance.png,True Melee,90,5,4,8,1,0,None
+Wind Blade,images/WindBlade.png,Melee,41,4,4,3,1,1,None
+Wulfrum Screwdriver,images/WulfrumScrewdriver.png,Melee,12,3,3,1,1,0,None
+Yateveo Bloom,images/YateveoBloom.png,True Melee,30,4,4,2,1,0,Donor
+Yin-Yo,images/YinYo.png,Melee,44,3,3,4,1,0,None
+Ace's High,images/AcesHigh.png,Ranged,325,4,5,15,1,0,Donor
+Adamantite Particle Accelerator,images/AdamantiteParticleAccelerator.png,Ranged,65,2,1,5,1,0,None
+Alluvion,images/Alluvion.png,Ranged,165,3,4,14,1,0,None
+Angelic Shotgun,images/AngelicShotgun.png,Ranged,96,2,3,12,1,0,Donor
+Animosity,images/Animosity.png,Ranged,33,2,4,7,1,0,None
+Anti-materiel Rifle,images/AntiMaterielRifle.png,Ranged,1860,7,0,14,1,1,None
+Aquashard Shotgun,images/AquashardShotgun.png,Ranged,9,4,2,3,1,1,None
+Arbalest,images/Arbalest.png,Ranged,28,3,2,5,1,0,None
+Archerfish,images/Archerfish.png,Ranged,16,2,5,3,1,1,None
+Arc Nova Diffuser,images/ArcNovaDiffuser.png,Ranged,172,3,6,8,0,0,None
+Arterial Assault,images/ArterialAssault.png,Ranged,110,4,5,12,1,0,None
+Astral Blaster,images/AstralBlaster.png,Ranged,120,2,4,9,1,0,None
+Astral Bow,images/AstralRepeater.png,Ranged,92,2,3,9,1,1,None
+Astreal Defeat,images/AstrealDefeat.png,Ranged,153,4,7,11,1,0,None
+Auralis,images/Auralis.png,Ranged,695,7,2,12,1,0,Donor
+Aurora Blazer,images/AuroraBlazer.png,Ranged,71,2,7,7,1,0,None
+Barinade,images/Barinade.png,Ranged,4,2,4,2,1,0,None
+Barinautical,images/Barinautical.png,Ranged,32,2,3,5,1,0,None
+Barracuda Gun,images/BarracudaGun.png,Ranged,56,1,4,8,1,1,None
+Bladedge Railbow,images/BladedgeGreatbow.png,Ranged,30,3,3,7,1,0,None
+Blight Spewer,images/BlightSpewer.png,Ranged,52,1,4,8,1,0,None
+Blissful Bombardier,images/BlissfulBombardier.png,Ranged,84,6,4,12,1,1,None
+Blood Boiler,images/BloodBoiler.png,Ranged,115,3,7,12,1,0,None
+Blossom Flux,images/BlossomFlux.png,Ranged,20,1,7,7,1,1,None
+Brimstone Fury,images/BrimstoneFury.png,Ranged,25,3,4,5,1,0,None
+Bullet-Filled Shotgun,images/BulletFilledShotgun.png,Ranged,1,0,1,3,1,1,Donor
+Butcher,images/Butcher.png,Ranged,15,1,1,4,1,0,None
+Chicken Cannon,images/ChickenCannon.png,Ranged,290,1,2,15,1,0,None
+Clamor Rifle,images/ClamorRifle.png,Ranged,36,2,4,5,1,0,None
+Claret Cannon,images/ClaretCannon.png,Ranged,140,4,5,12,1,1,None
+Cleansing Blaze,images/CleansingBlaze.png,Ranged,290,3,7,14,1,0,None
+Clock Gatlignum,images/ClockGatlignum.png,Ranged,55,3,4,8,1,1,None
+Clockwork Bow,images/ClockworkBow.png,Ranged,770,4,2,10,1,1,None
+Condemnation,images/Condemnation.png,Ranged,2130,4,4,15,1,0,None
+Conference Call,images/ConferenceCall.png,Ranged,36,4,2,9,1,1,None
+Contagion,images/Contagion.png,Ranged,880,4,4,16,1,0,Developer
+Continental Greatbow,images/ContinentalGreatbow.png,Ranged,34,3,3,8,1,0,None
+Coral Cannon,images/CoralCannon.png,Ranged,24,6,4,2,1,0,None
+Corinth Prime,images/CorinthPrime.png,Ranged,140,6,2,12,1,0,Donor
+Corroded Caustibow,images/CorrodedCaustibow.png,Ranged,75,4,1,5,1,0,None
+Cosmic Bolter,images/CosmicBolter.png,Ranged,48,2,4,8,1,1,None
+Crackshot Colt,images/CrackshotColt.png,Ranged,18,2,2,1,1,0,None
+Cursed Capper,images/CursedCapper.png,Ranged,31,2,5,4,1,1,None
+Daemon's Flame,images/DaemonsFlame.png,Ranged,150,3,5,13,1,0,None
+Darkecho Greatbow,images/DarkechoGreatbow.png,Ranged,45,3,2,5,1,0,None
+Dead Sun's Wind,images/DeadSunsWind.png,Ranged,100,3,4,9,1,1,None
+Deathwind,images/Deathwind.png,Ranged,248,4,5,14,1,0,None
+Deepcore GK2,images/DeepcoreGK2.png,Ranged,45,5,5,5,1,0,Donor
+Disseminator,images/Disseminator.png,Ranged,48,4,2,10,1,1,None
+Dodu's Handcannon,images/DodusHandcannon.png,Ranged,1020,4,2,13,1,0,Donor
+Dragon's Breath,images/DragonsBreath.png,Ranged,478,4,4,15,1,0,None
+Drataliornus,images/Drataliornus.png,Ranged,129,1,0,15,1,0,None
+Elemental Blaster,images/ElementalBlaster.png,Ranged,67,2,7,11,1,0,None
+Elemental Eruption,images/ElementalEruption.png,Ranged,94,3,6,11,1,1,None
+Eternal Blizzard,images/EternalBlizzard.png,Ranged,67,2,4,8,1,0,None
+Eviscerator,images/Eviscerator.png,Ranged,65,6,0,3,1,0,None
+Fetid Emesis,images/FetidEmesis.png,Ranged,129,2,6,13,1,1,None
+Firestorm Cannon,images/FirestormCannon.png,Ranged,14,1,5,2,1,1,None
+Flak Kraken,images/FlakKraken.png,Ranged,88,0,5,7,0,0,None
+Flak Toxicannon,images/FlakToxicannon.png,Ranged,51,5,5,5,1,1,None
+Flarewing Bow,images/FlarewingBow.png,Ranged,31,1,1,4,1,1,None
+Flurrystorm Cannon,images/FlurrystormCannon.png,Ranged,12,1,4,3,1,0,Donor
+Freedom Star,images/FreedomStar.png,Ranged,100,2,5,12,0,0,Donor
+Frostbite Blaster,images/FrostbiteBlaster.png,Ranged,50,4,0,5,1,1,None
+Fungicide,images/Fungicide.png,Ranged,20,2,4,2,1,1,None
+Galeforce,images/Galeforce.png,Ranged,8,2,4,3,1,0,None
+Golden Eagle,images/GoldenEagle.png,Ranged,85,2,4,11,1,1,None
+Goobow,images/Goobow.png,Ranged,33,2,2,4,1,0,None
+Gunk Shot,images/GunkShot.png,Ranged,23,3,2,4,1,0,None
+Halibut Cannon,images/HalibutCannon.png,Ranged,50,1,5,16,1,0,None
+Halley's Inferno,images/HalleysInferno.png,Ranged,444,4,1,13,1,1,None
+Handheld Tank,images/HandheldTank.png,Ranged,740,8,0,12,1,0,Donor
+Havoc's Breath,images/HavocsBreath.png,Ranged,70,1,3,7,1,0,None
+Heavenly Gale,images/HeavenlyGale.png,Ranged,215,3,1,15,1,0,None
+Hellborn,images/Hellborn.png,Ranged,20,2,4,5,1,0,None
+Helstorm,images/Helstorm.png,Ranged,31,2,6,8,1,1,None
+Hoarfrost Bow,images/HoarfrostBow.png,Ranged,37,3,3,5,1,1,None
+Hydra,images/Hydra.png,Ranged,44,7,0,8,1,0,None
+Infinity,images/Infinity.png,Ranged,120,1,6,14,1,0,None
+Karasawa,images/Karasawa.png,Ranged,2400,8,0,14,1,0,Donor
+Kingsbane,images/Kingsbane.png,Ranged,245,2,7,15,1,1,None
+Leviatitan,images/Leviatitan.png,Ranged,80,4,6,7,1,0,None
+Lunarian Bow,images/LunarianBow.png,Ranged,19,2,4,4,1,1,None
+Magna Cannon,images/MagnaCannon.png,Ranged,30,2,2,2,0,1,None
+Magnomaly Cannon,images/MagnomalyCannon.png,Ranged,357,7,4,15,1,0,None
+Malevolence,images/Malevolence.png,Ranged,56,2,4,8,1,0,None
+Marksman Bow,images/MarksmanBow.png,Ranged,35,4,4,8,1,0,Donor
+Megalodon,images/Megalodon.png,Ranged,30,2,6,7,1,1,None
+Meowthrower,images/Meowthrower.png,Ranged,29,1,6,4,1,1,None
+Midas Prime,images/MidasPrime.png,Ranged,81,2,2,5,1,0,None
+Mineral Mortar,images/MineralMortar.png,Ranged,85,8,0,5,0,0,None
+Molecular Manipulator,images/MolecularManipulator.png,Ranged,580,6,4,12,1,0,None
+Monsoon,images/Monsoon.png,Ranged,152,2,4,13,1,1,None
+Needler,images/Needler.png,Ranged,52,4,4,4,1,1,None
+Nettlevine Greatbow,images/NettlevineGreatbow.png,Ranged,73,2,4,12,1,0,None
+Norfleet,images/Norfleet.png,Ranged,354,8,0,14,1,0,None
+Nullification Pistol,images/NullificationRifle.png,Ranged,170,5,4,8,1,1,None
+Onyx Chain Blaster,images/OnyxChainBlaster.png,Ranged,51,4,4,10,1,1,None
+Onyxia,images/Onyxia.png,Ranged,90,4,5,14,1,0,None
+Opal Striker,images/OpalStriker.png,Ranged,37,3,4,2,0,1,None
+Overloaded Blaster,images/OverloadedBlaster.png,Ranged,19,1,4,4,1,1,None
+P90,images/P90.png,Ranged,5,1,7,4,1,1,None
+Pearl God,images/PearlGod.png,Ranged,33,2,4,8,1,1,None
+Pestilent Defiler,images/PestilentDefiler.png,Ranged,105,7,2,8,1,1,None
+Phangasm,images/Phangasm.png,Ranged,160,2,5,14,1,1,None
+Photoviscerator,images/Photoviscerator.png,Ranged,445,2,5,15,0,0,None
+Plague Tainted SMG,images/PlagueTaintedSMG.png,Ranged,76,2,5,8,1,0,Donor
+Planetary Annihilation,images/PlanetaryAnnihilation.png,Ranged,66,4,4,11,1,1,None
+Polaris Parrotfish,images/PolarisParrotfish.png,Ranged,72,2,4,4,1,0,None
+Prideful Hunter's Planar Ripper,images/PridefulHuntersPlanarRipper.png,Ranged,74,1,7,11,1,0,Donor
+Pristine Fury,images/PristineFury.png,Ranged,80,4,7,12,1,0,None
+Pumpler,images/Pumpler.png,Ranged,24,1,2,2,1,0,None
+Realm Ravager,images/RealmRavager.png,Ranged,50,3,4,8,1,1,None
+Reed Blowgun,images/ReedBlowgun.png,Ranged,21,4,3,2,1,0,None
+Rubico Prime,images/RubicoPrime.png,Ranged,1050,7,2,14,0,0,Donor
+Sandstorm,images/SandstormGun.png,Ranged,80,4,4,7,1,0,None
+Scorched Earth,images/ScorchedEarth.png,Ranged,500,6,0,14,1,1,Donor
+Scorpio,images/Scorpio.png,Ranged,40,5,5,10,1,1,None
+SDFMG,images/SDFMG.png,Ranged,100,2,7,14,1,1,None
+Seadragon,images/Seadragon.png,Ranged,60,2,7,12,1,1,None
+Sea's Searing,images/SeasSearing.png,Ranged,40,4,4,5,1,0,None
+Septic Skewer,images/SepticSkewer.png,Ranged,272,6,5,13,1,0,None
+Shadethrower,images/Shadethrower.png,Ranged,21,1,5,3,1,0,None
+Shellshooter,images/Shellshooter.png,Ranged,40,4,0,2,1,1,None
+Shredder,images/Shredder.png,Ranged,24,1,4,11,1,1,None
+Shroomer,images/Shroomer.png,Ranged,150,7,2,10,1,1,None
+Slag Magnum,images/SlagMagnum.png,Ranged,24,3,4,5,1,0,None
+Soma Prime,images/SomaPrime.png,Ranged,370,2,7,16,1,0,Developer
+Spark Spreader,images/SparkSpreader.png,Ranged,10,1,5,1,1,0,None
+Spectralstorm Cannon,images/SpectralstormCannon.png,Ranged,48,1,7,10,1,0,None
+Speed Blaster,images/SpeedBlaster.png,Ranged,40,2,5,5,1,1,None
+Spyker,images/Spyker.png,Ranged,210,4,5,12,1,0,None
+Starfleet,images/Starfleet.png,Ranged,56,8,0,10,1,1,None
+Starmada,images/Starmada.png,Ranged,135,8,3,14,1,0,None
+Starmageddon,images/Starmageddon.png,Ranged,100,3,2,14,1,0,Donor
+Star Sputter,images/StarSputter.png,Ranged,138,8,3,9,1,1,None
+Stellar Cannon,images/StellarCannon.png,Ranged,175,5,1,7,1,1,None
+Storm Dragoon,images/StormDragoon.png,Ranged,96,3,5,12,1,0,None
+Storm Surge,images/StormSurge.png,Ranged,18,4,4,2,1,0,None
+Sulphuric Acid Cannon,images/SulphuricAcidCannon.png,Ranged,144,4,4,13,1,0,None
+Surge Driver,images/SurgeDriver.png,Ranged,140,6,3,15,1,0,None
+Svantechnical,images/Svantechnical.png,Ranged,150,3,5,16,1,0,Developer
+Telluric Glare,images/TelluricGlare.png,Ranged,216,6,3,12,1,1,None
+Terra Flameburster,images/TerraFlameburster.png,Ranged,78,3,6,8,1,1,None
+The Ballista,images/TheBallista.png,Ranged,108,6,4,8,1,1,None
+The Hive,images/TheHive.png,Ranged,60,3,2,8,1,0,None
+The Jailor,images/TheJailor.png,Ranged,300,6,3,15,1,0,None
+The Maelstrom,images/TheMaelstrom.png,Ranged,530,2,1,13,1,0,Donor
+The Pack,images/ThePack.png,Ranged,1000,6,0,14,1,1,Donor
+The Sevens Striker,images/TheSevensStriker.png,Ranged,777,6,2,12,1,0,Donor
+The Storm,images/TheStorm.png,Ranged,35,3,6,12,1,1,None
+Titanium Railgun,images/TitaniumRailgun.png,Ranged,370,4,3,5,1,0,None
+Toxibow,images/Toxibow.png,Ranged,15,2,3,2,1,1,None
+Tyranny's End,images/TyrannysEnd.png,Ranged,2000,7,0,15,1,0,Donor
+Ultima,images/Ultima.png,Ranged,116,2,6,14,1,0,Donor
+Universal Genesis,images/UniversalGenesis.png,Ranged,192,5,3,14,1,0,Donor
+Voidragon,images/Voidragon.png,Ranged,240,4,7,16,1,0,Developer
+Vortexpopper,images/Vortexpopper.png,Ranged,30,3,4,10,1,0,None
+Wulfrum Blunderbuss,images/WulfrumBlunderbuss.png,Ranged,11,2,0,1,0,0,None
+Acidic Rain Barrel,images/AcidicRainBarrel.png,Rogue,43,6,4,5,1,0,None
+Adamantite Throwing Axe,images/AdamantiteThrowingAxe.png,Rogue,64,3,5,4,1,0,None
+Alpha Virus,images/AlphaVirus.png,Rogue,333,1,2,12,1,0,None
+Apoctolith,images/Apoctolith.png,Rogue,220,7,2,7,1,0,None
+Ashen Stalactite,images/AshenStalactite.png,Rogue,37,1,4,3,1,0,None
+Auroradical Throw,images/AuroradicalThrow.png,Rogue,48,4,2,7,1,0,None
+Ballistic Poison Bomb,images/BallisticPoisonBomb.png,Rogue,72,5,3,7,1,1,None
+Blast Barrel,images/BlastBarrel.png,Rogue,32,6,4,4,1,1,None
+Blazing Star,images/BlazingStar.png,Rogue,75,3,4,4,0,0,None
+Bloodsoaked Crasher,images/BloodsoakedCrasher.png,Rogue,245,2,3,12,1,0,None
+Bouncing Eyeball,images/BouncingEyeball.png,Rogue,16,3,3,2,1,0,None
+Bouncy Spiky Ball,images/BouncySpikyBall.png,Rogue,10,1,4,1,1,0,None
+Brackish Flask,images/BrackishFlask.png,Rogue,60,5,2,7,1,0,None
+Brimblade,images/Brimblade.png,Rogue,28,5,4,5,1,1,None
+Burning Strife,images/BurningStrife.png,Rogue,96,0,3,5,1,0,None
+Celestial Reaper,images/CelestialReaper.png,Rogue,140,4,2,10,1,0,None
+Celestus,images/Celestus.png,Rogue,280,4,4,15,1,0,None
+Cinquedea,images/Cinquedea.png,Rogue,36,4,4,3,1,1,None
+Cobalt Kunai,images/CobaltKunai.png,Rogue,52,2,5,4,1,0,None
+Consecrated Water,images/ConsecratedWater.png,Rogue,48,4,3,5,1,0,None
+Contaminated Bile,images/ContaminatedBile.png,Rogue,9,4,2,2,1,1,None
+Corpus Avertor,images/CorpusAvertor.png,Rogue,98,2,4,8,1,0,Donor
+Cosmic Kunai,images/CosmicKunai.png,Rogue,92,4,7,12,1,1,None
+Cranium Smasher,images/CraniumSmasher.png,Rogue,120,3,4,8,1,0,None
+Crushsaw Crasher,images/CrushsawCrasher.png,Rogue,85,5,4,7,1,1,None
+Crystalline,images/Crystalline.png,Rogue,16,2,4,2,1,1,None
+Crystal Piercer,images/CrystalPiercer.png,Rogue,92,4,4,5,1,1,None
+Cursed Dagger,images/CursedDagger.png,Rogue,45,4,4,4,1,1,None
+Deep Sea Dumbbell,images/DeepSeaDumbbell.png,Rogue,466,6,3,13,1,0,Donor
+Deep Wounder,images/DeepWounder.png,Rogue,136,2,3,7,1,0,None
+Defective Sphere,images/DefectiveSphere.png,Rogue,130,4,5,8,1,0,None
+Desecrated Water,images/DesecratedWater.png,Rogue,55,4,3,5,1,0,None
+Duke's Decapitator,images/DukesDecapitator.png,Rogue,90,2,2,8,1,0,None
+Duststorm in a Bottle,images/DuststormInABottle.png,Rogue,74,3,3,7,1,1,None
+Dynamic Pursuer,images/DynamicPursuer.png,Rogue,2850,2,1,15,1,0,None
+Eclipse's Fall,images/EclipsesFall.png,Rogue,500,3,4,14,1,0,None
+Elemental Disk,images/ElementalDisk.png,Rogue,92,6,4,11,1,1,None
+Enchanted Axe,images/EnchantedAxe.png,Rogue,20,1,4,3,1,1,None
+Epidemic Shredder,images/EpidemicShredder.png,Rogue,80,4,4,8,1,1,None
+Equanimity,images/Equanimity.png,Rogue,40,1,2,4,1,1,None
+Eradicator,images/Eradicator.png,Rogue,620,5,2,14,1,1,None
+Executioner's Blade,images/ExecutionersBlade.png,Rogue,195,5,7,14,1,0,None
+Exorcism,images/Exorcism.png,Rogue,55,1,4,5,1,0,None
+Fantasy Talisman,images/FantasyTalisman.png,Rogue,82,4,4,7,1,1,None
+Feather Knife,images/FeatherKnife.png,Rogue,16,2,4,3,1,0,None
+The Final Dawn,images/FinalDawn.png,Rogue,2500,3,4,15,0,0,Donor
+Fishbone Boomerang,images/FishboneBoomerang.png,Rogue,27,4,4,2,1,0,None
+Frostcrush Valari,images/FrostcrushValari.png,Rogue,89,8,4,7,1,0,None
+Frosty Flare,images/FrostyFlare.png,Rogue,32,2,5,6,1,0,None
+Gacruxian Mollusk,images/GacruxianMollusk.png,Rogue,36,4,3,4,1,0,None
+Gel Dart,images/GelDart.png,Rogue,54,2,5,4,1,1,None
+Ghoulish Gouger,images/GhoulishGouger.png,Rogue,166,6,4,13,1,1,None
+Gilded Dagger,images/GildedDagger.png,Rogue,14,1,4,1,1,0,None
+Glaive,images/Glaive.png,Rogue,45,2,4,3,0,1,None
+Gleaming Dagger,images/GleamingDagger.png,Rogue,14,1,4,1,1,0,None
+Gods' Paranoia,images/GodsParanoia.png,Rogue,142,4,4,14,1,0,None
+Grave Grimreaver,images/GraveGrimreaver.png,Rogue,84,3,0,5,1,0,Donor
+Hardened Honeycomb,images/HardenedHoneycomb.png,Rogue,20,2,4,3,1,0,None
+Heavenfallen Stardisk,images/HeavenfallenStardisk.png,Rogue,90,6,1,7,1,1,None
+Hell's Sun,images/HellsSun.png,Rogue,200,4,4,11,1,0,None
+Hypothermia,images/Hypothermia.png,Rogue,200,2,7,14,1,0,None
+Icebreaker,images/Icebreaker.png,Rogue,60,5,5,5,1,1,None
+Ice Star,images/IceStar.png,Rogue,45,2,5,5,1,1,None
+Ichor Spear,images/IchorSpear.png,Rogue,132,5,1,4,1,1,None
+Infernal Kris,images/InfernalKris.png,Rogue,24,1,4,3,1,0,None
+Infested Clawmerang,images/InfestedClawmerang.png,Rogue,18,1,4,2,1,0,None
+Iron Francisca,images/IronFrancisca.png,Rogue,14,1,4,0,0,1,None
+Jaws of Oblivion,images/JawsOfOblivion.png,Rogue,159,1,4,13,1,0,None
+Kelvin Catalyst,images/KelvinCatalyst.png,Rogue,60,3,2,5,1,0,Donor
+Kylie,images/Kylie.png,Rogue,63,8,3,3,0,1,None
+Lead Tomahawk,images/LeadTomahawk.png,Rogue,14,1,4,0,0,1,None
+Leonid Progenitor,images/LeonidProgenitor.png,Rogue,64,2,4,7,1,0,None
+Leviathan Teeth,images/LeviathanTeeth.png,Rogue,66,1,4,7,1,1,None
+Lionfish,images/Lionfish.png,Rogue,45,2,4,3,1,0,None
+Lunar Kunai,images/LunarKunai.png,Rogue,112,2,5,10,1,0,None
+Malachite,images/Malachite.png,Rogue,55,1,5,8,1,0,None
+Mangrove Chakram,images/MangroveChakram.png,Rogue,84,6,5,7,1,0,None
+Metal Monstrosity,images/MetalMonstrosity.png,Rogue,30,5,1,3,1,0,None
+Meteor Fist,images/MeteorFist.png,Rogue,15,4,4,2,1,0,None
+Molten Amputator,images/MoltenAmputator.png,Rogue,166,6,4,12,1,1,None
+Monkey Darts,images/MonkeyDarts.png,Rogue,150,3,4,7,1,0,None
+Mycoroot,images/Mycoroot.png,Rogue,12,1,7,2,1,0,None
+Mythril Knife,images/MythrilKnife.png,Rogue,80,2,5,4,1,0,None
+Nanoblack Reaper,images/NanoblackReaper.png,Rogue,130,6,6,16,1,0,Developer
+Nasty Cholla,images/NastyCholla.png,Rogue,15,2,4,0,0,0,None
+Night's Gaze,images/NightsGaze.png,Rogue,531,1,4,13,1,1,None
+Nychthemeron,images/Nychthemeron.png,Rogue,60,1,4,6,1,0,None
+Orichalcum Spiked Gemstone,images/OrichalcumSpikedGemstone.png,Rogue,40,2,5,4,1,0,None
+Palladium Javelin,images/PalladiumJavelin.png,Rogue,88,4,3,4,1,0,None
+Penumbra,images/Penumbra.png,Rogue,830,6,1,14,1,0,None
+Phantasmal Ruin,images/PhantasmalRuin.png,Rogue,145,6,2,7,1,0,None
+Plaguenade,images/Plaguenade.png,Rogue,63,1,4,8,1,0,Donor
+Poison Pack,images/PoisonPack.png,Rogue,20,2,4,1,0,0,None
+Prismalline,images/Prismalline.png,Rogue,36,4,3,5,1,1,None
+Profaned Partisan,images/ProfanedPartisan.png,Rogue,322,6,4,12,1,1,None
+Radiant Star,images/RadiantStar.png,Rogue,55,4,5,9,1,1,None
+Reality Rupture,images/RealityRupture.png,Rogue,225,6,2,12,1,1,None
+Refraction Rotor,images/RefractionRotor.png,Rogue,616,6,4,15,1,0,None
+Regulus Riot,images/RegulusRiot.png,Rogue,116,4,3,9,1,0,None
+Rot Ball,images/RotBall.png,Rogue,26,2,5,3,1,0,None
+Sacrifice,images/Sacrifice.png,Rogue,300,3,6,15,1,0,None
+Sand Dollar,images/SandDollar.png,Rogue,26,3,4,2,1,0,None
+Sandslasher,images/Sandslasher.png,Rogue,115,4,4,7,1,0,None
+Scarlet Devil,images/ScarletDevil.png,Rogue,10000,6,0,16,1,0,Developer
+Scourge of the Desert,images/ScourgeoftheDesert.png,Rogue,12,3,3,2,1,1,None
+Scourge of the Seas,images/ScourgeoftheSeas.png,Rogue,56,3,3,5,1,0,None
+Seafoam Bomb,images/SeafoamBomb.png,Rogue,12,6,3,2,1,1,None
+Sealed Singularity,images/SealedSingularity.png,Rogue,260,4,3,12,1,1,Donor
+Seared Pan,images/SearedPan.png,Rogue,2222,7,3,15,1,0,Donor
+Seraphim,images/Seraphim.png,Rogue,320,4,5,15,1,0,None
+Shard of Antumbra,images/ShardofAntumbra.png,Rogue,240,6,4,9,1,0,None
+Shattered Sun,images/ShatteredSun.png,Rogue,80,4,5,12,1,1,None
+Shinobi Blade,images/ShinobiBlade.png,Rogue,24,1,5,3,1,0,None
+Shock Grenade,images/ShockGrenade.png,Rogue,108,1,4,8,1,0,None
+Skyfin Bombers,images/SkyfinBombers.png,Rogue,46,5,2,5,1,0,None
+Sky Stabber,images/SkyStabber.png,Rogue,50,2,4,3,0,0,None
+Slick Cane,images/SlickCane.png,Rogue,27,4,3,4,1,0,None
+Sludge Splotch,images/SludgeSplotch.png,Rogue,48,1,4,2,1,0,None
+Snap Clam,images/SnapClam.png,Rogue,14,2,3,2,1,0,None
+Spear of Destiny,images/SpearofDestiny.png,Rogue,50,2,1,6,1,1,None
+Spear of Paleolith,images/SpearofPaleolith.png,Rogue,65,4,3,5,1,0,None
+Spent Fuel Container,images/SpentFuelContainer.png,Rogue,50,4,2,5,1,0,None
+Star of Destruction,images/StarofDestruction.png,Rogue,150,7,1,9,1,1,None
+Stellar Knife,images/StellarKnife.png,Rogue,50,3,6,7,1,0,None
+Sticky Spiky Ball,images/StickySpikyBall.png,Rogue,10,2,4,1,0,0,None
+Stormfront Razor,images/StormfrontRazor.png,Rogue,38,5,4,5,1,1,None
+Subduction Slicer,images/SubductionSlicer.png,Rogue,90,6,4,8,1,1,None
+Supernova,images/Supernova.png,Rogue,675,6,3,15,1,0,None
+Tarragon Throwing Dart,images/TarragonThrowingDart.png,Rogue,380,4,5,12,1,0,None
+Terra Disk,images/TerraDisk.png,Rogue,100,3,2,8,1,1,None
+Terror Talons,images/TerrorTalons.png,Rogue,52,2,6,6,1,0,None
+The Atom Splitter,images/TheAtomSplitter.png,Rogue,320,5,3,15,1,0,None
+The Old Reaper,images/TheOldReaper.png,Rogue,180,3,4,13,1,0,None
+The Syringe,images/TheSyringe.png,Rogue,60,4,4,8,1,0,None
+Throwing Brick,images/ThrowingBrick.png,Rogue,17,4,2,0,0,1,None
+Time Bolt,images/TimeBolt.png,Rogue,432,3,4,13,1,0,Donor
+Titanium Shuriken,images/TitaniumShuriken.png,Rogue,56,2,6,4,1,0,None
+Tooth Ball,images/ToothBall.png,Rogue,26,2,5,3,1,0,None
+Totality Breakers,images/TotalityBreakers.png,Rogue,50,4,3,7,1,1,None
+Toxicant Twister,images/ToxicantTwister.png,Rogue,333,4,4,13,1,0,None
+Turbulance,images/Turbulance.png,Rogue,18,4,4,3,1,0,None
+Twisting Thunder,images/TwistingThunder.png,Rogue,466,7,4,12,1,0,None
+Urchin Stinger,images/UrchinStinger.png,Rogue,13,1,5,1,1,0,None
+Utensil Poker,images/UtensilPoker.png,Rogue,333,6,2,10,1,1,None
+Valediction,images/Valediction.png,Rogue,243,5,4,13,1,0,None
+Wave Skipper,images/WaveSkipper.png,Rogue,80,3,4,5,1,0,None
+Web Ball,images/WebBall.png,Rogue,12,2,4,0,0,0,None
+Wrathwing,images/Wrathwing.png,Rogue,592,4,5,15,1,1,None
+Wulfrum Knife,images/WulfrumKnife.png,Rogue,9,1,3,1,1,1,None
+Abandoned Slime Staff,images/AbandonedSlimeStaff.png,Summon,56,2,4,7,0,1,Donor
+Ancient Ice Chunk,images/AncientIceChunk.png,Summon,25,2,3,4,1,0,None
+Aqua's Scepter,images/AquasScepter.png,Summon,65,4,2,12,0,0,Developer
+Ares' Exoskeleton,images/AresExoskeleton.png,Summon,625,1,6,15,0,0,None
+Atlas Munitions Beacon,images/AtlasMunitionsBeacon.png,Summon,200,4,5,15,1,0,None
+Belladonna Spirit Staff,images/BelladonnaSpiritStaff.png,Summon,22,1,2,1,1,1,None
+Black Hawk Remote,images/BlackHawkRemote.png,Summon,25,1,3,4,1,1,None
+Borealis Bomber,images/BorealisBomber.png,Summon,35,4,4,7,1,0,None
+Brittle Star Staff,images/BrittleStarStaff.png,Summon,10,2,2,2,1,0,None
+Cadaverous Carrion,images/CadaverousCarrion.png,Summon,384,3,5,13,1,0,None
+Calamari's Lament,images/CalamarisLament.png,Summon,110,0,5,13,1,1,None
+Caustic Croaker Staff,images/CausticCroakerStaff.png,Summon,8,0,2,2,1,0,None
+Caustic Staff,images/CausticStaff.png,Summon,15,2,3,4,1,0,Donor
+Cinder Blossom Staff,images/CinderBlossomStaff.png,Summon,16,2,2,3,0,1,None
+Cinders of Lament,images/CindersOfLament.png,Summon,1666,0,2,15,1,0,None
+Cnidarian,images/Cnidarian.png,Summon,8,2,3,2,1,0,None
+Corroslime Staff,images/CorroslimeStaff.png,Summon,24,2,2,4,1,1,None
+Corvid Harbinger Staff,images/CorvidHarbringerStaff.png,Summon,114,2,5,14,1,0,None
+Cosmic Immaterializer,images/CosmicImmaterializer.png,Summon,560,0,5,15,0,0,None
+Cosmic Viper Engine,images/CosmicViperEngine.png,Summon,321,4,6,14,1,1,None
+Cosmilamp,images/Cosmilamp.png,Summon,127,3,4,12,1,1,None
+Crimslime Staff,images/CrimslimeStaff.png,Summon,24,2,2,4,1,1,None
+Cryogenic Staff,images/CryogenicStaff.png,Summon,50,3,3,6,1,1,Developer
+Daedalus Golem Staff,images/DaedalusGolemStaff.png,Summon,70,2,3,5,1,0,None
+Dank Staff,images/DankStaff.png,Summon,9,2,2,3,1,0,None
+Dazzling Stabber Staff,images/DazzlingStabberStaff.png,Summon,127,2,4,12,1,0,None
+Deathstare Rod,images/DeathstareRod.png,Summon,33,2,2,2,0,0,None
+Deepsea Staff,images/DeepseaStaff.png,Summon,40,2,3,5,1,0,None
+Dormant Brimseeker,images/DormantBrimseeker.png,Summon,42,2,3,5,1,0,None
+Dragonblood Disgorger,images/DragonbloodDisgorger.png,Summon,215,3,4,12,0,0,None
+Dreadmine Staff,images/DreadmineStaff.png,Summon,60,4,3,7,1,0,None
+Elemental Axe,images/ElementalAxe.png,Summon,57,4,4,11,1,1,None
+Enchanted Conch,images/EnchantedConch.png,Summon,20,2,2,2,1,0,None
+Endogenesis,images/Endogenesis.png,Summon,1300,3,5,16,1,0,Developer
+Endo Hydra Staff,images/EndoHydraStaff.png,Summon,225,2,5,14,1,0,None
+Entropy's Vigil,images/EntropysVigil.png,Summon,40,2,3,7,1,0,None
+Ethereal Subjugator,images/EtherealSubjugator.png,Summon,200,1,5,13,1,1,None
+Eye of Night,images/EyeOfNight.png,Summon,28,1,2,3,1,1,None
+Flamsteed Ring,images/FlamsteedRing.png,Summon,1999,1,6,16,0,0,Developer
+Flesh of Infidelity,images/FleshOfInfidelity.png,Summon,15,1,5,3,1,0,None
+Flowers of Mortality,images/FlowersOfMortality.png,Summon,72,4,4,11,0,0,None
+Forgotten Apex Wand,images/ForgottenApexWand.png,Summon,28,3,3,5,1,1,None
+Frost Blossom Staff,images/FrostBlossomStaff.png,Summon,10,2,2,1,0,1,None
+Fuel Cell Bundle,images/FuelCellBundle.png,Summon,25,5,4,8,1,1,None
+Gamma Heart,images/GammaHeart.png,Summon,85,2,5,13,1,0,None
+Gastric Belcher Staff,images/GastricBelcherStaff.png,Summon,60,1,4,7,1,0,None
+Glacial Embrace,images/GlacialEmbrace.png,Summon,48,4,3,5,1,0,None
+Guidelight of Oblivion,images/GuidelightofOblivion.png,Summon,75,4,4,12,1,0,None
+Haunted Scroll,images/HauntedScroll.png,Summon,25,2,3,4,1,0,None
+Herring Staff,images/HerringStaff.png,Summon,15,1,2,3,1,0,None
+Hive Pod,images/HivePod.png,Summon,125,3,4,7,1,0,None
+Igneous Exaltation,images/IgneousExaltation.png,Summon,34,4,3,5,1,0,None
+Infected Remote,images/InfectedRemote.png,Summon,50,4,4,8,0,0,Donor
+King of Constellations, Tenryū,images/KingofConstellationsTenryu.png,Summon,213,2,3,12,1,0,Donor
+Metastasis,images/Metastasis.png,Summon,400,2,5,15,0,0,None
+Midnight Sun Beacon,images/MidnightSunBeacon.png,Summon,150,1,5,15,1,0,None
+Mirror of Kalandra,images/MirrorofKalandra.png,Summon,380,3,2,14,1,0,Donor
+Mutated Truffle,images/MutatedTruffle.png,Summon,275,4,5,13,0,0,None
+Orthocera Shell,images/OrthoceraShell.png,Summon,53,2,3,5,1,0,None
+Perdition,images/Perdition.png,Summon,375,3,5,15,1,0,None
+Plantation Staff,images/PlantationStaff.png,Summon,58,1,4,8,0,1,None
+Polyp Launcher,images/PolypLauncher.png,Summon,12,0,2,2,1,0,None
+Puff Shroom,images/PuffShroom.png,Summon,14,2,2,2,1,0,None
+Resurrection Butterfly,images/ResurrectionButterfly.png,Summon,55,1,4,8,1,0,Donor
+Rusty Beacon Prototype,images/RustyBeaconPrototype.png,Summon,8,1,2,1,1,0,None
+Sanctified Spark,images/SanctifiedSpark.png,Summon,128,4,5,11,1,0,None
+Sand Sharknado Staff,images/SandSharknadoStaff.png,Summon,94,2,4,7,1,0,None
+Saros Possession,images/SarosPossession.png,Summon,500,3,5,14,0,1,None
+Scab Ripper,images/ScabRipper.png,Summon,15,1,2,2,1,1,None
+Shellfish Staff,images/ShellfishStaff.png,Summon,70,2,3,5,1,0,None
+Sirius,images/Sirius.png,Summon,600,7,5,13,0,1,None
+Slime Puppet Staff,images/SlimePuppetStaff.png,Summon,26,3,3,4,1,0,None
+Spikecrag Staff,images/SpikecragStaff.png,Summon,56,2,4,8,1,0,None
+Squirrel Squire Staff,images/SquirrelSquireStaff.png,Summon,8,1,2,0,1,0,None
+Staff of Necrosteocytes,images/StaffOfNecrosteocytes.png,Summon,31,3,2,3,1,1,None
+Staff of the Mechworm,images/StaffoftheMechworm.png,Summon,100,2,5,14,1,1,None
+Starspawn Helix Staff,images/StarspawnHelixStaff.png,Summon,75,1,4,9,1,0,None
+Stellar Torus Staff,images/StellarTorusStaff.png,Summon,185,3,2,12,1,0,Donor
+Stormjaw Staff,images/StormjawStaff.png,Summon,11,2,2,2,1,0,None
+Sun Spirit Staff,images/SunSpiritStaff.png,Summon,12,1,2,1,0,1,None
+Tactical Plague Engine,images/TacticalPlagueEngine.png,Summon,140,1,5,10,1,1,None
+Temporal Umbrella,images/TemporalUmbrella.png,Summon,193,1,5,16,0,0,Developer
+Tundra Flame Blossoms Staff,images/TundraFlameBlossomsStaff.png,Summon,40,2,3,5,0,1,None
+Universe Splitter,images/UniverseSplitter.png,Summon,15000,5,5,16,0,0,Developer
+Vengeful Sun Staff,images/VengefulSunStaff.png,Summon,60,1,3,6,0,1,None
+Vigilance,images/Vigilance.png,Summon,115,3,5,15,1,0,None
+Vile Feeder,images/VileFeeder.png,Summon,14,1,2,2,1,1,None
+Viral Sprout,images/ViralSprout.png,Summon,30,2,4,7,1,0,None
+Virid Vanguard,images/ViridVanguard.png,Summon,73,4,5,12,1,1,None
+Void Concentration Staff,images/VoidConcentrationStaff.png,Summon,105,3,4,12,0,0,None
+Warloks' Moon Fist,images/WarloksMoonFist.png,Summon,450,2,3,13,1,0,None
+Wither Blossoms Staff,images/WitherBlossomsStaff.png,Summon,50,2,4,8,0,1,None
+Wulfrum Controller,images/WulfrumController.png,Summon,16,1,2,1,1,0,None
+Yharon's Kindle Staff,images/YharonsKindleStaff.png,Summon,300,5,5,15,1,0,None
+Aestheticus,images/Aestheticus.png,Typeless,8,2,3,3,1,0,Donor
+Eye of Magnus,images/EyeofMagnus.png,Typeless,32,4,4,9,1,0,None
+Golden Gun,images/GoldenGun.png,Typeless,5,2,4,3,1,0,None
+Lunic Eye,images/LunicEye.png,Typeless,9,4,4,4,1,1,None
+Relic of Deliverance,images/RelicOfDeliverance.png,Typeless,1350,0,1,11,0,0,None
+Yanmei's Knife,images/YanmeisKnife.png,Typeless,8,4,2,8,0,0,Donor

@@ -1,0 +1,19 @@
+name,image,class,damage,knockback,speed,rarityid,autoswing,material,dedication
+Dragoon Drizzlefish,images/DragoonDrizzlefish.png,Ranged,18,1,4,3,1,0,None
+Sparkling Empress,images/SparklingEmpress.png,Magic,10,0,4,2,0,0,None
+Frequency Manipulator,images/FrequencyManipulator.png,Rogue,80,4,0,5,1,0,None
+Galvanizing Glaive,images/GalvanizingGlaive.png,Melee,130,6,4,8,1,0,None
+Gatling Laser,images/GatlingLaser.png,Magic,43,1,7,8,0,0,None
+Gauss Dagger,images/GaussDagger.png,True Melee,25,5,3,3,1,0,None
+Gauss Pistol,images/GaussPistol.png,Magic,150,7,4,5,1,0,None
+Gauss Rifle,images/GaussRifle.png,Ranged,150,8,2,8,1,0,None
+Heavy Laser Rifle,images/HeavyLaserRifle.png,Ranged,210,3,3,12,1,0,None
+Matter Modulator,images/MatterModulator.png,Ranged,100,7,2,5,1,0,None
+Mounted Scanner,images/MountedScanner.png,Summon,41,2,3,5,1,0,None
+Phaseslayer,images/Phaseslayer.png,Melee,980,5,3,14,1,0,None
+Plasma Caster,images/PlasmaCaster.png,Magic,705,5,1,12,1,0,None
+Plasma Grenade,images/PlasmaGrenade.png,Rogue,950,2,2,14,1,0,None
+Pole Warper,images/PoleWarper.png,Summon,310,6,6,14,1,0,None
+Pulse Dragon,images/PulseDragon.png,Melee,300,6,4,12,1,0,None
+Pulse Pistol,images/PulsePistol.png,Magic,26,0,4,3,1,0,None
+Pulse Rifle,images/PulseRifle.png,Ranged,1200,0,2,14,1,0,None
