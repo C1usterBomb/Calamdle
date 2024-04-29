@@ -24,6 +24,7 @@ let terrariaFont;
 let rarityFound = false;
 
 function preload() {
+  //randomSeed(1360925150294);
   terrariaFont = loadFont('andy.ttf');
   knockback = ["None", "Extremely weak", "Very weak", "Weak", "Average", "Strong", "Very strong", "Extremely strong", "Insane"];
   speedAttack = ["Snail", "Extremely slow", "Very slow", "Slow", "Average", "Fast", "Very fast", "Insanely fast"];
@@ -39,6 +40,7 @@ function preload() {
 }
 
 function setup() {
+  noLoop()
   var cnv = createCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight - 20 + 1000);
   cnv.style('display', 'block');
   textFont(terrariaFont);
@@ -106,6 +108,7 @@ function setup() {
   chosenIndex = int(random(0, itemCount));
   chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
   print(chosenItem.getRow(0).getString(0));
+  joinPlayer()
 }
 
 function draw() {
@@ -150,6 +153,9 @@ function draw() {
     image(imgArray[i / scaleY], 5, i - scrollPos + 58, scaleY, scaleY, 0, 0, imgArray[i / scaleY].width, imgArray[i / scaleY].height, CONTAIN);
   }
   displayGuesses();
+  if(shared) {
+    drawChat()
+  }
 }
 // its so simple, it just scrolls and works, now with touchpad support
 function mouseWheel(event) {
@@ -188,6 +194,8 @@ function selectGuess(n) {
   searchAdjust();
   selectedGuess = orgItemArray[n].html();
   selectedGuessIndex = n;
+  myShared.lastChat[0] = "someone" + " guessed correctly! (guess " + myShared.guesses.length + ")"
+  myShared.lastChat[1] = 'rgba(0, 255, 0, 0.20)'
 }
 
 function hoverGuess(n) {
@@ -431,5 +439,86 @@ function drawImageGuessBox(num) {
     rect(guessShift + 55 + num * 105, 310 + (guessList.getRowCount() - 1 - i) * 85, 100, 75);
     pop();
     image(orgImgArray[guessIndexes[i]], guessShift + 20 + num * 105, 275 + (guessList.getRowCount() - 1 - i) * 85, 70, 70, 0, 0, orgImgArray[guessIndexes[i]].width, orgImgArray[guessIndexes[i]].height, CONTAIN);
+  }
+}
+
+function joinPlayer() {
+  partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
+  myShared = partyLoadMyShared({ player: 0, username: "", score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
+  shared = partyLoadShared("shared", {}, sharedLoaded)
+  guestShared = partyLoadGuestShareds()
+}
+
+function sharedLoaded() {
+  shared.chat = shared.chat || [];
+  shared.category = shared.category || ""
+  shared.answer = shared.answer || chosenItem.getRow(0).getString(0);
+  shared.timePassed = shared.timePassed || 0;
+  partySubscribe("start", startNewRound)
+
+  if (partyIsHost()) {
+    // partyToggleInfo(true)
+    partySubscribe("updateChat", updateChat)
+    shared.chat = [];
+    shared.chat.push("New room created")
+    shared.chat.push('rgba(0, 0, 255, 0.20)')
+  }
+}
+
+function mySharedLoaded() {
+  // username = inputBox.value()
+  // myShared.username = username
+  myShared.player = guestShared.length - 1
+  print("shared " + myShared.player)
+  // inputBox.input(filterGuessList)
+  // inputBox.value("")
+  // resetButton.show()
+  loop()
+}
+
+function startNewRound() {
+  if (partyIsHost()) {
+    shared.timePassed = 0
+    shared.chat = [];
+    answer = round(random(list.getRowCount() - 1))
+    shared.answer = answer
+    print(guestShared.length + " players")
+    for (let i = 0; i < guestShared.length; i++) {
+      print("watching " + i)
+      partyWatchShared(guestShared[i], "lastChat", () => { updateChat(i) })
+      // partyWatchShared(guestShared[i], "progress", () => { updateProgress(i) })
+      // partyWatchShared(guestShared[i], "score", () => { updateScore(i) })
+    }
+  }
+  myShared.score = 10000
+  myShared.guesses = []
+  inputBox.value("")
+  filterGuessList()
+  guessButton.show()
+}
+
+function updateChat(player) {
+  if (guestShared[player].lastChat[0] != "" && guestShared[player].lastChat[1] != "") {
+    shared.chat.push(guestShared[player].lastChat[0])
+    shared.chat.push(guestShared[player].lastChat[1])
+  }
+}
+
+function drawChat() {
+  if (shared.chat.length > 20) {
+    shared.chat.splice(0, 2)
+  }
+  if (shared.chat.length % 2 == 0) {
+    for (let i = 0; i < shared.chat.length; i += 2) {
+      push()
+      fill(shared.chat[i + 1])
+      noStroke()
+      rect(235, 32.5 + i * 10, 300, 20)
+      pop()
+      push()
+      fill('black')
+      text(shared.chat[i], 240, 45 + i * 10)
+      pop()
+    }
   }
 }
