@@ -23,6 +23,13 @@ let rarity = [];
 let terrariaFont;
 let rarityFound = false;
 
+let connected = false
+let sharedDoneLoading = false
+let mySharedDoneLoading = false
+let multiplayerInput
+let multiplayerJoinButton
+
+
 function preload() {
   //randomSeed(1360925150294);
   terrariaFont = loadFont('andy.ttf');
@@ -40,7 +47,6 @@ function preload() {
 }
 
 function setup() {
-  noLoop()
   var cnv = createCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight - 20 + 1000);
   cnv.style('display', 'block');
   textFont(terrariaFont);
@@ -77,6 +83,21 @@ function setup() {
   scrollBar = createDiv();
   scrollBar.style('background', color(104));
   scrollBar.size(11, 20);
+  multiplayerInput = createInput('[Enter Username]');
+  multiplayerInput.position(9, 5);
+  multiplayerInput.size(180, 20);
+  multiplayerInput.style('font-family', 'andy');
+  multiplayerInput.style('font-size: 14px');
+  multiplayerInput.style('color', 'black');
+  multiplayerInput.style('background', "#EA5252");
+  multiplayerJoinButton = createButton('Join Multiplayer');
+  multiplayerJoinButton.position(200, 5);
+  multiplayerJoinButton.size(125, 24);
+  multiplayerJoinButton.style('font-family', 'andy');
+  multiplayerJoinButton.style('font-size: 16px');
+  multiplayerJoinButton.style('background-color', "#696969");
+  multiplayerJoinButton.style('border-radius', '5px');
+  multiplayerJoinButton.mousePressed(joinPlayer)
   for (j = 0; j < itemTables.length; j++) {
     for (let i = 0; i < itemTables[j].getRowCount(); ++i) {
       button = createButton(itemTables[j].get(i, "name"));
@@ -108,7 +129,6 @@ function setup() {
   chosenIndex = int(random(0, itemCount));
   chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
   print(chosenItem.getRow(0).getString(0));
-  joinPlayer()
 }
 
 function draw() {
@@ -153,7 +173,7 @@ function draw() {
     image(imgArray[i / scaleY], 5, i - scrollPos + 58, scaleY, scaleY, 0, 0, imgArray[i / scaleY].width, imgArray[i / scaleY].height, CONTAIN);
   }
   displayGuesses();
-  if(shared) {
+  if (connected) {
     drawChat()
   }
 }
@@ -194,8 +214,6 @@ function selectGuess(n) {
   searchAdjust();
   selectedGuess = orgItemArray[n].html();
   selectedGuessIndex = n;
-  myShared.lastChat[0] = "someone" + " guessed correctly! (guess " + myShared.guesses.length + ")"
-  myShared.lastChat[1] = 'rgba(0, 255, 0, 0.20)'
 }
 
 function hoverGuess(n) {
@@ -442,7 +460,25 @@ function drawImageGuessBox(num) {
   }
 }
 
+
+
+
+
 function joinPlayer() {
+  multiplayerJoinButton.hide()
+  push()
+  strokeWeight(1)
+  fill('red')
+  rect(190, 0, 100, 20, 5)
+  pop()
+  push()
+  textFont(terrariaFont)
+  textSize(16)
+  fill(250)
+  noStroke()
+  text("Connecting...", 200, 14)
+  pop()
+  
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
   myShared = partyLoadMyShared({ player: 0, username: "", score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
@@ -463,17 +499,35 @@ function sharedLoaded() {
     shared.chat.push("New room created")
     shared.chat.push('rgba(0, 0, 255, 0.20)')
   }
+  if(mySharedDoneLoading) {
+    connected = true
+  }
+  sharedDoneLoading = true
 }
 
 function mySharedLoaded() {
-  // username = inputBox.value()
-  // myShared.username = username
+  myShared.username = multiplayerInput.value()
   myShared.player = guestShared.length - 1
+  multiplayerInput.value("")
   print("shared " + myShared.player)
   // inputBox.input(filterGuessList)
-  // inputBox.value("")
   // resetButton.show()
-  loop()
+  push()
+  strokeWeight(1)
+  fill('green')
+  rect(190, 0, 100, 20, 5)
+  pop()
+  push()
+  textFont(terrariaFont)
+  textSize(16)
+  fill(250)
+  noStroke()
+  text("Connected!!", 200, 14)
+  pop()
+  if(sharedDoneLoading) {
+    connected = true
+  }
+  mySharedDoneLoading = true
 }
 
 function startNewRound() {
@@ -513,11 +567,11 @@ function drawChat() {
       push()
       fill(shared.chat[i + 1])
       noStroke()
-      rect(235, 32.5 + i * 10, 300, 20)
+      rect(255, 27.5 + i * 10, 300, 20)
       pop()
       push()
       fill('black')
-      text(shared.chat[i], 240, 45 + i * 10)
+      text(shared.chat[i], 260, 40 + i * 10)
       pop()
     }
   }
