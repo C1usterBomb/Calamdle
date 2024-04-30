@@ -28,6 +28,7 @@ let sharedDoneLoading = false
 let mySharedDoneLoading = false
 let multiplayerInput
 let multiplayerJoinButton
+let multiplayerStartButton
 
 
 function preload() {
@@ -98,6 +99,15 @@ function setup() {
   multiplayerJoinButton.style('background-color', "#696969");
   multiplayerJoinButton.style('border-radius', '5px');
   multiplayerJoinButton.mousePressed(joinPlayer)
+  multiplayerStartButton = createButton('Start New Game');
+  multiplayerStartButton.position(310, 5);
+  multiplayerStartButton.size(125, 24);
+  multiplayerStartButton.style('font-family', 'andy');
+  multiplayerStartButton.style('font-size: 16px');
+  multiplayerStartButton.style('background-color', "#696969");
+  multiplayerStartButton.style('border-radius', '5px');
+  multiplayerStartButton.hide()
+  multiplayerStartButton.mousePressed(startNewRound)
   for (j = 0; j < itemTables.length; j++) {
     for (let i = 0; i < itemTables[j].getRowCount(); ++i) {
       button = createButton(itemTables[j].get(i, "name"));
@@ -469,16 +479,16 @@ function joinPlayer() {
   push()
   strokeWeight(1)
   fill('red')
-  rect(190, 0, 100, 20, 5)
+  rect(195, 0, 100, 20, 5)
   pop()
   push()
   textFont(terrariaFont)
   textSize(16)
   fill(250)
   noStroke()
-  text("Connecting...", 200, 14)
+  text("Connecting...", 205, 14)
   pop()
-  
+
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
   myShared = partyLoadMyShared({ player: 0, username: "", score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
@@ -499,8 +509,9 @@ function sharedLoaded() {
     shared.chat.push("New room created")
     shared.chat.push('rgba(0, 0, 255, 0.20)')
   }
-  if(mySharedDoneLoading) {
+  if (mySharedDoneLoading) {
     connected = true
+    multiplayerStartButton.show()
   }
   sharedDoneLoading = true
 }
@@ -515,40 +526,41 @@ function mySharedLoaded() {
   push()
   strokeWeight(1)
   fill('green')
-  rect(190, 0, 100, 20, 5)
+  rect(195, 0, 100, 20, 5)
   pop()
   push()
   textFont(terrariaFont)
   textSize(16)
   fill(250)
   noStroke()
-  text("Connected!!", 200, 14)
+  text("Connected!!", 208, 14)
   pop()
-  if(sharedDoneLoading) {
+  if (sharedDoneLoading) {
     connected = true
+    multiplayerStartButton.show()
   }
   mySharedDoneLoading = true
 }
 
 function startNewRound() {
-  if (partyIsHost()) {
-    shared.timePassed = 0
-    shared.chat = [];
-    answer = round(random(list.getRowCount() - 1))
-    shared.answer = answer
-    print(guestShared.length + " players")
-    for (let i = 0; i < guestShared.length; i++) {
-      print("watching " + i)
-      partyWatchShared(guestShared[i], "lastChat", () => { updateChat(i) })
-      // partyWatchShared(guestShared[i], "progress", () => { updateProgress(i) })
-      // partyWatchShared(guestShared[i], "score", () => { updateScore(i) })
-    }
-  }
-  myShared.score = 10000
-  myShared.guesses = []
-  inputBox.value("")
-  filterGuessList()
-  guessButton.show()
+  // if (partyIsHost()) {
+  //   shared.timePassed = 0
+  //   shared.chat = [];
+  //   answer = round(random(list.getRowCount() - 1))
+  //   shared.answer = answer
+  //   print(guestShared.length + " players")
+  //   for (let i = 0; i < guestShared.length; i++) {
+  //     print("watching " + i)
+  //     partyWatchShared(guestShared[i], "lastChat", () => { updateChat(i) })
+  //     // partyWatchShared(guestShared[i], "progress", () => { updateProgress(i) })
+  //     // partyWatchShared(guestShared[i], "score", () => { updateScore(i) })
+  //   }
+  // }
+  // myShared.score = 10000
+  // myShared.guesses = []
+  // inputBox.value("")
+  // filterGuessList()
+  // guessButton.show()
 }
 
 function updateChat(player) {
