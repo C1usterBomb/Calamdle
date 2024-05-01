@@ -26,6 +26,7 @@ let rarityFound = false;
 let connected = false
 let sharedDoneLoading = false
 let mySharedDoneLoading = false
+let watchedPlayers = []
 let multiplayerInput
 let multiplayerJoinButton
 let multiplayerStartButton
@@ -60,19 +61,7 @@ function setup() {
   guessButton.text = "";
   guessButton.fitImage = true;
   guessButton.onPress = function() {
-    if (selectedGuessIndex != -1) {
-      guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
-      guessIndexes.push(selectedGuessIndex);
-      selectedGuessIndex = -1;
-      selectedGuess = "";
-      search.value("");
-      for (i = 0; i < guessList.getRowCount(); i++) {
-        if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
-          rarityFound = true;
-        }
-      }
-      searchAdjust();
-    }
+    guess()
   }
   search = createInput('');
   search.position(9, 32);
@@ -107,7 +96,7 @@ function setup() {
   multiplayerStartButton.style('background-color', "#696969");
   multiplayerStartButton.style('border-radius', '5px');
   multiplayerStartButton.hide()
-  multiplayerStartButton.mousePressed(startNewRound)
+  multiplayerStartButton.mousePressed(() => { partyEmit("start") })
   for (j = 0; j < itemTables.length; j++) {
     for (let i = 0; i < itemTables[j].getRowCount(); ++i) {
       button = createButton(itemTables[j].get(i, "name"));
@@ -196,6 +185,34 @@ function mouseWheel(event) {
       scrollHold -= int(scrollHold / 50) * 50;
     }
     return false;
+  }
+}
+
+function guess() {
+  if (selectedGuessIndex != -1) {
+    guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
+    guessIndexes.push(selectedGuessIndex);
+    if (connected) {
+      myShared.lastChat[0] = ""
+      myShared.lastChat[1] = ""
+      myShared.guesses.unshift(list.getRow(selectedGuessIndex).getString(0))
+      if (guessList.getRow(guessList.getRowCount() - 1).getString("name") == shared.answer) {
+        myShared.lastChat[0] = myShared.username + " guessed correctly! (guess " + myShared.guesses.length + ")"
+        myShared.lastChat[1] = 'rgba(0, 255, 0, 0.20)'
+      } else {
+        myShared.lastChat[0] = myShared.username + " guessed incorrectly...(guess " + myShared.guesses.length + ")"
+        myShared.lastChat[1] = 'rgba(255, 0, 0, 0.20)'
+      }
+    }
+    selectedGuessIndex = -1;
+    selectedGuess = "";
+    search.value("");
+    for (i = 0; i < guessList.getRowCount(); i++) {
+      if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
+        rarityFound = true;
+      }
+    }
+    searchAdjust();
   }
 }
 
@@ -490,7 +507,7 @@ function joinPlayer() {
   pop()
 
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
-  myShared = partyLoadMyShared({ player: 0, username: "", score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
+  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
   guestShared = partyLoadGuestShareds()
 }
@@ -499,21 +516,22 @@ function sharedLoaded() {
   shared.chat = shared.chat || [];
   shared.category = shared.category || ""
   shared.answer = shared.answer || chosenItem.getRow(0).getString(0);
+  shared.gameInProgress = shared.gameInProgress || false;
   shared.timePassed = shared.timePassed || 0;
   partySubscribe("start", startNewRound)
 
   if (partyIsHost()) {
     // partyToggleInfo(true)
-    partySubscribe("updateChat", updateChat)
+    // partySubscribe("updateChat", updateChat)
     shared.chat = [];
     shared.chat.push("New room created")
     shared.chat.push('rgba(0, 0, 255, 0.20)')
   }
+  sharedDoneLoading = true
   if (mySharedDoneLoading) {
     connected = true
-    multiplayerStartButton.show()
+    newPlayer()
   }
-  sharedDoneLoading = true
 }
 
 function mySharedLoaded() {
@@ -522,7 +540,6 @@ function mySharedLoaded() {
   multiplayerInput.value("")
   print("shared " + myShared.player)
   // inputBox.input(filterGuessList)
-  // resetButton.show()
   push()
   strokeWeight(1)
   fill('green')
@@ -535,32 +552,70 @@ function mySharedLoaded() {
   noStroke()
   text("Connected!!", 208, 14)
   pop()
+  mySharedDoneLoading = true
   if (sharedDoneLoading) {
     connected = true
+    newPlayer()
+  }
+}
+
+function newPlayer() {
+  if (shared.gameInProgress) {
+    multiplayerStartButton.hide()
+    push()
+    strokeWeight(1)
+    fill('white')
+    rect(300, 0, 135, 20, 5)
+    pop()
+    push()
+    textFont(terrariaFont)
+    textSize(16)
+    fill(0)
+    noStroke()
+    text("Game in progress...", 310, 14)
+    pop()
+  } else {
     multiplayerStartButton.show()
   }
-  mySharedDoneLoading = true
 }
 
 function startNewRound() {
-  // if (partyIsHost()) {
-  //   shared.timePassed = 0
-  //   shared.chat = [];
-  //   answer = round(random(list.getRowCount() - 1))
-  //   shared.answer = answer
-  //   print(guestShared.length + " players")
-  //   for (let i = 0; i < guestShared.length; i++) {
-  //     print("watching " + i)
-  //     partyWatchShared(guestShared[i], "lastChat", () => { updateChat(i) })
-  //     // partyWatchShared(guestShared[i], "progress", () => { updateProgress(i) })
-  //     // partyWatchShared(guestShared[i], "score", () => { updateScore(i) })
-  //   }
-  // }
-  // myShared.score = 10000
-  // myShared.guesses = []
-  // inputBox.value("")
-  // filterGuessList()
-  // guessButton.show()
+  if (partyIsHost()) {
+    shared.gameInProgress = true;
+    shared.timePassed = 0
+    shared.chat = [];
+    chosenIndex = int(random(0, itemCount));
+    chosenItem.removeRow(0)
+    chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
+    shared.answer = chosenItem.getRow(0).getString(0);
+    print(shared.answer)
+    print(guestShared.length + " players")
+    for (let i = 0; i < guestShared.length; i++) {
+      if (!watchedPlayers.includes(i)) {
+        print("watching " + i)
+        partyWatchShared(guestShared[i], "lastChat", () => { updateChat(i) })
+        watchedPlayers.push(i)
+      }
+    }
+  }
+  myShared.inGame = true;
+  myShared.score = 10000
+  myShared.guesses = []
+  search.value("")
+  searchAdjust()
+  multiplayerStartButton.hide()
+  push()
+  strokeWeight(1)
+  fill('white')
+  rect(300, 0, 135, 20, 5)
+  pop()
+  push()
+  textFont(terrariaFont)
+  textSize(16)
+  fill(0)
+  noStroke()
+  text("Game in progress...", 310, 14)
+  pop()
 }
 
 function updateChat(player) {
@@ -571,6 +626,12 @@ function updateChat(player) {
 }
 
 function drawChat() {
+  push()
+  strokeWeight(1)
+  // fill('#696969')
+  fill('white')
+  rect(255, 27.5, 300, 200, 5)
+  pop()
   if (shared.chat.length > 20) {
     shared.chat.splice(0, 2)
   }
