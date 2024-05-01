@@ -174,6 +174,8 @@ function draw() {
   displayGuesses();
   if (connected) {
     drawChat()
+    updateScoreboard()
+    drawScoreboard()
   }
 }
 // its so simple, it just scrolls and works, now with touchpad support
@@ -647,5 +649,50 @@ function drawChat() {
       text(shared.chat[i], 260, 40 + i * 10)
       pop()
     }
+  }
+}
+
+function updateScoreboard() {
+  if (partyIsHost()) {
+    shared.timePassed++
+  }
+  if (myShared.score > 0) {
+    myShared.score = 10000 - shared.timePassed - (myShared.guesses.length * 500)
+  }
+}
+
+function drawScoreboard() {
+  push()
+  strokeWeight(1)
+  fill('rgb(0, 0, 0)')
+  rect(560, 27.5, 260, 20, 5)
+  fill('rgb(150, 150, 150)')
+  rect(560, 47.5, 120, 180, 5)
+  fill('rgb(125, 125, 125)')
+  rect(680, 47.5, 70, 180, 5)
+  fill('rgb(150, 150, 150)')
+  rect(750, 47.5, 70, 180, 5)
+  pop()
+
+  push()
+  textFont(terrariaFont)
+  textSize(16)
+  fill(250)
+  noStroke()
+  text("Players", 600, 42.5)
+  text("Score", 700, 42.5)
+  text("Progress", 760, 42.5)
+  pop()
+
+  for (let i = 0; i < guestShared.length; i++) {
+    push()
+    textFont(terrariaFont)
+    textSize(16)
+    fill(250)
+    noStroke()
+    text(guestShared[i].username, 565, 65 + i * 25)
+    text(guestShared[i].score, 690, 65 + i * 25)
+    text(guestShared[i].progress, 760, 65 + i * 25)
+    pop()
   }
 }
