@@ -251,6 +251,9 @@ function setup() {
 
 function draw() {
   textFont(terrariaFont);
+  // here's the lines which just get rid of the single/mult buttons to make sure it isnt confusing, you can remove these commands for actual functionality
+  singleButton.hide();
+  multButton.hide();
   if (gameOn) {
     drawSearchArea();
     if (imgLoadCount == orgItemCount) {
