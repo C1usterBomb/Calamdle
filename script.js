@@ -392,6 +392,7 @@ function windowResized() {
   startButton.position(windowWidth / 2 - 100, windowHeight / 4 - 30);
   singleButton.position(windowWidth * 0.48 - 110, windowHeight * 0.35 - 15);
   multButton.position(windowWidth * 0.52, windowHeight * 0.35 - 15);
+  displayGuesses();
 }
 // adriens codde
 function displayGuesses() {
