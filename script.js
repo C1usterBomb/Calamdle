@@ -489,10 +489,7 @@ function drawImageGuessBox(num) {
   }
 }
 
-
-
-
-
+//----------------Multiplayer Functions-----------------------
 function joinPlayer() {
   multiplayerJoinButton.hide()
   push()
@@ -630,8 +627,10 @@ function updateChat(player) {
 function drawChat() {
   push()
   strokeWeight(1)
-  // fill('#696969')
-  fill('white')
+  fill('rgba(255, 255, 255, 0.75)')
+  erase()
+  rect(255, 27.5, 300, 200, 5)
+  noErase()
   rect(255, 27.5, 300, 200, 5)
   pop()
   if (shared.chat.length > 20) {
@@ -666,11 +665,20 @@ function drawScoreboard() {
   strokeWeight(1)
   fill('rgb(0, 0, 0)')
   rect(560, 27.5, 260, 20, 5)
-  fill('rgb(150, 150, 150)')
+  fill('rgba(150, 150, 150, 0.75)')
+  erase()
   rect(560, 47.5, 120, 180, 5)
-  fill('rgb(125, 125, 125)')
+  noErase()
+  rect(560, 47.5, 120, 180, 5)
+  fill('rgba(125, 125, 125, 0.75)')
+  erase()
   rect(680, 47.5, 70, 180, 5)
-  fill('rgb(150, 150, 150)')
+  noErase()
+  rect(680, 47.5, 70, 180, 5)
+  fill('rgba(150, 150, 150, 0.75)')
+  erase()
+  rect(750, 47.5, 70, 180, 5)
+  noErase()
   rect(750, 47.5, 70, 180, 5)
   pop()
 
