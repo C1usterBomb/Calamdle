@@ -34,8 +34,9 @@ let menuButton;
 let guessBoxSize = 100;
 let guessXShift = guessBoxSize * 1.05;
 
+let multiplayerEnabled = false;
 let connected = false
-let multiplayerEnabled = false
+let multiplayerGameStarted = false
 let sharedDoneLoading = false
 let mySharedDoneLoading = false
 let watchedPlayers = []
@@ -113,6 +114,7 @@ function preload() {
   singleButton.mouseOut(unHoverButton);
   singleButton.mousePressed(function() {
     multiplayerEnabled = false;
+    print(multiplayerEnabled)
   });
 
   multButton = createButton('Multiplayer');
@@ -126,13 +128,41 @@ function preload() {
   multButton.mouseOut(unHoverButton);
   multButton.mousePressed(function() {
     multiplayerEnabled = true;
+    print(multiplayerEnabled)
   });
+  //Multiplayer buttons
+  multiplayerInput = createInput('[Enter Username]');
+  multiplayerInput.position(9, 5);
+  multiplayerInput.size(180, 20);
+  multiplayerInput.style('font-family', 'andy');
+  multiplayerInput.style('font-size: 14px');
+  multiplayerInput.style('color', 'black');
+  multiplayerInput.style('background', "#EA5252");
+  multiplayerInput.hide()
+  
+  multiplayerJoinButton = createButton('Join Multiplayer');
+  multiplayerJoinButton.position(200, 5);
+  multiplayerJoinButton.size(125, 24);
+  multiplayerJoinButton.style('font-family', 'andy');
+  multiplayerJoinButton.style('font-size: 16px');
+  multiplayerJoinButton.style('background-color', "#696969");
+  multiplayerJoinButton.style('border-radius', '5px');
+  multiplayerJoinButton.mousePressed(joinPlayer)
+  multiplayerJoinButton.hide()
+  
+  multiplayerStartButton = createButton('Start New Game');
+  multiplayerStartButton.position(310, 5);
+  multiplayerStartButton.size(125, 24);
+  multiplayerStartButton.style('font-family', 'andy');
+  multiplayerStartButton.style('font-size: 16px');
+  multiplayerStartButton.style('background-color', "#696969");
+  multiplayerStartButton.style('border-radius', '5px');
+  multiplayerStartButton.mousePressed(() => { partyEmit("start") })
+  multiplayerStartButton.hide()
 }
 
 function startGame() {
   resizeCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight + 1000, true);
-  search.show();
-  scrollBar.show();
   singleButton.hide();
   multButton.hide();
 
@@ -164,6 +194,18 @@ function startGame() {
   chosenIndex = int(random(0, itemCount));
   chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
   print(chosenItem.getRow(0).getString(0));
+
+  if(!multiplayerEnabled) {
+    search.show();
+    scrollBar.show();
+  }
+
+  if(multiplayerEnabled) {
+    search.hide();
+    scrollBar.hide();
+    multiplayerInput.show()
+    multiplayerJoinButton.show()
+  }
 }
 
 function imgLoaded() {
@@ -227,7 +269,20 @@ function setup() {
   guessButton.text = "";
   guessButton.fitImage = true;
   guessButton.onPress = function() {
-    guess()
+    if (selectedGuessIndex != -1) {
+      guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
+      guessIndexes.push(selectedGuessIndex);
+      selectedGuessIndex = -1;
+      selectedGuess = "";
+      search.value("");
+      for (i = 0; i < guessList.getRowCount(); i++) {
+        if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
+          rarityFound = true;
+        }
+      }
+      searchAdjust();
+      displayGuesses();
+    }
   }
   search = createInput('');
   search.position(9, 32);
@@ -241,73 +296,30 @@ function setup() {
   scrollBar.style('background', color(104));
   scrollBar.size(11, 20);
   scrollBar.hide();
-  multiplayerInput = createInput('[Enter Username]');
-  multiplayerInput.position(9, 5);
-  multiplayerInput.size(180, 20);
-  multiplayerInput.style('font-family', 'andy');
-  multiplayerInput.style('font-size: 14px');
-  multiplayerInput.style('color', 'black');
-  multiplayerInput.style('background', "#EA5252");
-  multiplayerJoinButton = createButton('Join Multiplayer');
-  multiplayerJoinButton.position(200, 5);
-  multiplayerJoinButton.size(125, 24);
-  multiplayerJoinButton.style('font-family', 'andy');
-  multiplayerJoinButton.style('font-size: 16px');
-  multiplayerJoinButton.style('background-color', "#696969");
-  multiplayerJoinButton.style('border-radius', '5px');
-  multiplayerJoinButton.mousePressed(joinPlayer)
-  multiplayerStartButton = createButton('Start New Game');
-  multiplayerStartButton.position(310, 5);
-  multiplayerStartButton.size(125, 24);
-  multiplayerStartButton.style('font-family', 'andy');
-  multiplayerStartButton.style('font-size: 16px');
-  multiplayerStartButton.style('background-color', "#696969");
-  multiplayerStartButton.style('border-radius', '5px');
-  multiplayerStartButton.hide()
-  multiplayerStartButton.mousePressed(() => { partyEmit("start") })
-  for (j = 0; j < itemTables.length; j++) {
-    for (let i = 0; i < itemTables[j].getRowCount(); ++i) {
-      button = createButton(itemTables[j].get(i, "name"));
-      button.size(140, scaleY - 4);
-      button.style('font-family', 'andy');
-      if (button.html().toString().length > 28)
-        button.style('font-size: 13px');
-      else
-        button.style('font-size: 16px');
-      button.style('color', 'black');
-      button.style('background-color', '#C70039');
-      button.hide();
-      button.value(j);
-      orgItemArray.push(button);
-      orgImgArray.push(loadImage(itemTables[j].get(i, "image")));
-    }
-  }
-  fill(255);
-  sortButtons(orgItemArray);
-  for (let i = 0; i < orgItemArray.length; ++i) {
-    orgItemArray[i].mousePressed(() => selectGuess(i));
-    orgItemArray[i].mouseOver(() => hoverGuess(i));
-    orgItemArray[i].mouseOut(() => unHoverGuess(i));
-  }
-  itemArray = orgItemArray;
-  imgArray = orgImgArray;
-  orgItemCount = orgItemArray.length;
-  itemCount = orgItemArray.length;
-  chosenIndex = int(random(0, itemCount));
-  chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
-  print(chosenItem.getRow(0).getString(0));
 }
 
 function draw() {
   textFont(terrariaFont);
   // here's the lines which just get rid of the single/mult buttons to make sure it isnt confusing, you can remove these commands for actual functionality
-  singleButton.hide();
-  multButton.hide();
+  // singleButton.hide();
+  // multButton.hide();
   if (gameOn) {
-    drawSearchArea();
-    if (imgLoadCount == orgItemCount) {
-      resetButton.show();
-      menuButton.show();
+    if(!multiplayerEnabled) {
+      drawSearchArea();
+      if (imgLoadCount == orgItemCount) {
+        resetButton.show();
+        menuButton.show();
+      }
+    }
+    if(multiplayerEnabled) {
+      if (connected) {
+        drawChat()
+        updateScoreboard()
+        drawScoreboard()
+      }
+      if(multiplayerGameStarted) {
+        drawSearchArea();
+      }
     }
   }
   else if (menuOn) {
@@ -358,12 +370,6 @@ function drawSearchArea() {
     itemArray[i / scaleY].position(65, i - scrollPos + 65);
     image(imgArray[i / scaleY], 5, i - scrollPos + 58, scaleY, scaleY, 0, 0, imgArray[i / scaleY].width, imgArray[i / scaleY].height, CONTAIN);
   }
-  // displayGuesses();
-  if (connected) {
-    drawChat()
-    updateScoreboard()
-    drawScoreboard()
-  }
 }
 
 function drawMenu() {
@@ -379,34 +385,6 @@ function mouseWheel(event) {
       scrollHold -= int(scrollHold / 50) * 50;
     }
     return false;
-  }
-}
-
-function guess() {
-  if (selectedGuessIndex != -1) {
-    guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
-    guessIndexes.push(selectedGuessIndex);
-    if (connected) {
-      myShared.lastChat[0] = ""
-      myShared.lastChat[1] = ""
-      myShared.guesses.unshift(list.getRow(selectedGuessIndex).getString(0))
-      if (guessList.getRow(guessList.getRowCount() - 1).getString("name") == shared.answer) {
-        myShared.lastChat[0] = myShared.username + " guessed correctly! (guess " + myShared.guesses.length + ")"
-        myShared.lastChat[1] = 'rgba(0, 255, 0, 0.20)'
-      } else {
-        myShared.lastChat[0] = myShared.username + " guessed incorrectly...(guess " + myShared.guesses.length + ")"
-        myShared.lastChat[1] = 'rgba(255, 0, 0, 0.20)'
-      }
-    }
-    selectedGuessIndex = -1;
-    selectedGuess = "";
-    search.value("");
-    for (i = 0; i < guessList.getRowCount(); i++) {
-      if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
-        rarityFound = true;
-      }
-    }
-    searchAdjust();
   }
 }
 
@@ -471,7 +449,7 @@ function windowResized() {
   }
   menuButton.position((windowWidth - 30 > 1300 ? windowWidth - 150 : 1170), 10);
   resetButton.position((windowWidth - 30 > 1300 ? windowWidth - 260 : 1060), 10);
-  
+
   startButton.position(windowWidth / 2 - 100, windowHeight / 4 - 30);
   singleButton.position(windowWidth * 0.48 - 110, windowHeight * 0.35 - 15);
   multButton.position(windowWidth * 0.52, windowHeight * 0.35 - 15);
@@ -715,7 +693,7 @@ function darkenColor(colorString, amount) {
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
 
-//-------------------------- Multiplayer functions --------------------------
+//-----------------------------------------Multiplayer Code-----------------------------------------
 function joinPlayer() {
   multiplayerJoinButton.hide()
   push()
@@ -740,7 +718,8 @@ function joinPlayer() {
 function sharedLoaded() {
   shared.chat = shared.chat || [];
   shared.category = shared.category || ""
-  shared.answer = shared.answer || chosenItem.getRow(0).getString(0);
+  // shared.answer = shared.answer || chosenItem.getRow(0).getString(0);
+  shared.answer = shared.answer || ""
   shared.gameInProgress = shared.gameInProgress || false;
   shared.timePassed = shared.timePassed || 0;
   partySubscribe("start", startNewRound)
@@ -805,6 +784,9 @@ function newPlayer() {
 }
 
 function startNewRound() {
+  multiplayerGameStarted = true
+  search.show();
+  scrollBar.show();
   if (partyIsHost()) {
     shared.gameInProgress = true;
     shared.timePassed = 0
