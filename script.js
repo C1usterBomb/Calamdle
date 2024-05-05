@@ -269,20 +269,7 @@ function setup() {
   guessButton.text = "";
   guessButton.fitImage = true;
   guessButton.onPress = function() {
-    if (selectedGuessIndex != -1) {
-      guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
-      guessIndexes.push(selectedGuessIndex);
-      selectedGuessIndex = -1;
-      selectedGuess = "";
-      search.value("");
-      for (i = 0; i < guessList.getRowCount(); i++) {
-        if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
-          rarityFound = true;
-        }
-      }
-      searchAdjust();
-      displayGuesses();
-    }
+    guess()
   }
   search = createInput('');
   search.position(9, 32);
@@ -326,6 +313,36 @@ function draw() {
     drawMenu();
   }
 }
+
+function guess() {
+  if (selectedGuessIndex != -1) {
+    guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
+    guessIndexes.push(selectedGuessIndex);
+    if (connected) {
+      myShared.lastChat[0] = ""
+      myShared.lastChat[1] = ""
+      myShared.guesses.unshift(list.getRow(selectedGuessIndex).getString(0))
+      if (guessList.getRow(guessList.getRowCount() - 1).getString("name") == shared.answer) {
+        myShared.lastChat[0] = myShared.username + " guessed correctly! (guess " + myShared.guesses.length + ")"
+        myShared.lastChat[1] = 'rgba(0, 255, 0, 0.20)'
+      } else {
+        myShared.lastChat[0] = myShared.username + " guessed incorrectly...(guess " + myShared.guesses.length + ")"
+        myShared.lastChat[1] = 'rgba(255, 0, 0, 0.20)'
+      }
+    }
+    selectedGuessIndex = -1;
+    selectedGuess = "";
+    search.value("");
+    for (i = 0; i < guessList.getRowCount(); i++) {
+      if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
+        rarityFound = true;
+      }
+    }
+    searchAdjust();
+    displayGuesses();
+  }
+}
+
 
 function drawSearchArea() {
   search.input(searchAdjust);
