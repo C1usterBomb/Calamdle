@@ -98,9 +98,14 @@ function preload() {
   startButton.mouseOut(unHoverButton);
   startButton.mousePressed(function() {
     startButton.hide();
-    startGame();
+    singleButton.hide();
+    multButton.hide();
     menuOn = false;
     gameOn = true;
+    showInputs()
+    if (!multiplayerEnabled) {
+      startGame();
+    }
   });
 
   singleButton = createButton('Singleplayer');
@@ -138,8 +143,9 @@ function preload() {
   multiplayerInput.style('font-size: 14px');
   multiplayerInput.style('color', 'black');
   multiplayerInput.style('background', "#EA5252");
+  multiplayerInput.elt.maxLength = 20;
   multiplayerInput.hide()
-  
+
   multiplayerJoinButton = createButton('Join Multiplayer');
   multiplayerJoinButton.position(200, 5);
   multiplayerJoinButton.size(125, 24);
@@ -149,7 +155,7 @@ function preload() {
   multiplayerJoinButton.style('border-radius', '5px');
   multiplayerJoinButton.mousePressed(joinPlayer)
   multiplayerJoinButton.hide()
-  
+
   multiplayerStartButton = createButton('Start New Game');
   multiplayerStartButton.position(310, 5);
   multiplayerStartButton.size(125, 24);
@@ -163,8 +169,6 @@ function preload() {
 
 function startGame() {
   resizeCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight + 1000, true);
-  singleButton.hide();
-  multButton.hide();
 
   for (j = 0; j < itemTables.length; j++) {
     for (let i = 0; i < itemTables[j].getRowCount(); ++i) {
@@ -195,12 +199,16 @@ function startGame() {
   chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
   print(chosenItem.getRow(0).getString(0));
 
-  if(!multiplayerEnabled) {
+  // showInputs()
+}
+
+function showInputs() {
+  if (!multiplayerEnabled) {
     search.show();
     scrollBar.show();
   }
 
-  if(multiplayerEnabled) {
+  if (multiplayerEnabled) {
     search.hide();
     scrollBar.hide();
     multiplayerInput.show()
@@ -291,21 +299,51 @@ function draw() {
   // singleButton.hide();
   // multButton.hide();
   if (gameOn) {
-    if(!multiplayerEnabled) {
+    if (!multiplayerEnabled) {
       drawSearchArea();
       if (imgLoadCount == orgItemCount) {
         resetButton.show();
         menuButton.show();
+      } else {
+        guessButton.draw();
+        displayGuesses()
       }
     }
-    if(multiplayerEnabled) {
+    if (multiplayerEnabled) {
       if (connected) {
         drawChat()
         updateScoreboard()
         drawScoreboard()
       }
-      if(multiplayerGameStarted) {
+      if (multiplayerGameStarted) {
         drawSearchArea();
+        if (!myShared.loaded) {
+          if (imgLoadCount == 0) {
+            myShared.status[0] = "Preparing images"
+            myShared.status[1] = 'rgba(255, 255, 0, 0.50)'
+          } else {
+            myShared.status[0] = "Imgs (" + imgLoadCount + "/" + orgItemCount + ")"
+            myShared.status[1] = 'rgba(255, 255, 0, 0.50)'
+          }
+          if (imgLoadCount == orgItemCount) {
+            myShared.loaded = true
+            myShared.status[0] = "Loaded!"
+            myShared.status[1] = 'rgba(0, 0, 255, 0.50)'
+            myShared.lastChat[0] = myShared.username + " is done loading!"
+            myShared.lastChat[1] = 'rgba(0, 0, 255, 0.20)'
+          }
+        }
+        if (partyIsHost() && myShared.status[0] === "Loaded!") {
+          let playersLoaded = 0
+          for (let i = 0; i < guestShared.length; i++) {
+            if (guestShared[i].loaded) {
+              playersLoaded++
+            }
+          }
+          if(playersLoaded == guestShared.length) {
+            partyEmit("started")
+          }
+        }
       }
     }
   }
@@ -359,7 +397,10 @@ function drawSearchArea() {
   else if (scrollPos > (itemCount - currentWindowItemCount) * 50) {
     scrollPos = (itemCount - currentWindowItemCount) * 50;
   }
-  guessButton.draw();
+  if (imgLoadCount == orgItemCount) {
+    guessButton.draw();
+  }
+  // guessButton.draw();
   strokeWeight(2);
   fill('#EA5252');
   erase();
@@ -459,7 +500,7 @@ function sortButtons(arr) {
 }
 
 function windowResized() {
-  if (gameOn){
+  if (gameOn) {
     resizeCanvas((windowWidth - 30 > 1300 ? windowWidth - 30 : 1300), windowHeight + 1000, true);
   } else {
     resizeCanvas(windowWidth - 20, windowHeight - 20, true);
@@ -727,7 +768,7 @@ function joinPlayer() {
   pop()
 
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
-  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
+  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, loaded: false, status: ["Not playing", 'rgba(255, 0, 0, 0.50)'], score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
   guestShared = partyLoadGuestShareds()
 }
@@ -735,11 +776,12 @@ function joinPlayer() {
 function sharedLoaded() {
   shared.chat = shared.chat || [];
   shared.category = shared.category || ""
-  // shared.answer = shared.answer || chosenItem.getRow(0).getString(0);
   shared.answer = shared.answer || ""
   shared.gameInProgress = shared.gameInProgress || false;
+  shared.gameStarted = shared.gameStarted || false;
   shared.timePassed = shared.timePassed || 0;
   partySubscribe("start", startNewRound)
+  partySubscribe("started", roundStarted)
 
   if (partyIsHost()) {
     // partyToggleInfo(true)
@@ -801,6 +843,7 @@ function newPlayer() {
 }
 
 function startNewRound() {
+  startGame()
   multiplayerGameStarted = true
   search.show();
   scrollBar.show();
@@ -842,6 +885,15 @@ function startNewRound() {
   pop()
 }
 
+function roundStarted() {
+  guessButton.draw();
+  myShared.status[0] = "Playing"  
+  myShared.status[1] = 'rgba(0, 255, 0, 0.20)'
+  if(partyIsHost()) {
+    shared.gameStarted = true;
+  }
+}
+
 function updateChat(player) {
   if (guestShared[player].lastChat[0] != "" && guestShared[player].lastChat[1] != "") {
     shared.chat.push(guestShared[player].lastChat[0])
@@ -866,7 +918,7 @@ function drawChat() {
       push()
       fill(shared.chat[i + 1])
       noStroke()
-      rect(255, 27.5 + i * 10, 300, 20)
+      rect(255, 27.5 + i * 10, 300, 20, 5)
       pop()
       push()
       fill('black')
@@ -877,11 +929,13 @@ function drawChat() {
 }
 
 function updateScoreboard() {
-  if (partyIsHost()) {
-    shared.timePassed++
-  }
-  if (myShared.score > 0) {
-    myShared.score = 10000 - shared.timePassed - (myShared.guesses.length * 500)
+  if(shared.gameStarted) {
+    if (partyIsHost()) {
+      shared.timePassed++
+    }
+    if (myShared.score > 0) {
+      myShared.score = 10000 - shared.timePassed - (myShared.guesses.length * 500)
+    }
   }
 }
 
@@ -889,7 +943,7 @@ function drawScoreboard() {
   push()
   strokeWeight(1)
   fill('rgb(0, 0, 0)')
-  rect(560, 27.5, 260, 20, 5)
+  rect(560, 27.5, 410, 20, 5)
   fill('rgba(150, 150, 150, 0.75)')
   erase()
   rect(560, 47.5, 120, 180, 5)
@@ -897,14 +951,19 @@ function drawScoreboard() {
   rect(560, 47.5, 120, 180, 5)
   fill('rgba(125, 125, 125, 0.75)')
   erase()
-  rect(680, 47.5, 70, 180, 5)
+  rect(680, 47.5, 150, 180, 5)
   noErase()
-  rect(680, 47.5, 70, 180, 5)
+  rect(680, 47.5, 150, 180, 5)
   fill('rgba(150, 150, 150, 0.75)')
   erase()
-  rect(750, 47.5, 70, 180, 5)
+  rect(830, 47.5, 70, 180, 5)
   noErase()
-  rect(750, 47.5, 70, 180, 5)
+  rect(830, 47.5, 70, 180, 5)
+  fill('rgba(125, 125, 125, 0.75)')
+  erase()
+  rect(900, 47.5, 70, 180, 5)
+  noErase()
+  rect(900, 47.5, 70, 180, 5)
   pop()
 
   push()
@@ -912,9 +971,10 @@ function drawScoreboard() {
   textSize(16)
   fill(250)
   noStroke()
-  text("Players", 600, 42.5)
-  text("Score", 700, 42.5)
-  text("Progress", 760, 42.5)
+  text("Status", 600, 42.5)
+  text("Players", 730, 42.5)
+  text("Score", 850, 42.5)
+  text("Progress", 910, 42.5)
   pop()
 
   for (let i = 0; i < guestShared.length; i++) {
@@ -923,9 +983,14 @@ function drawScoreboard() {
     textSize(16)
     fill(250)
     noStroke()
-    text(guestShared[i].username, 565, 65 + i * 25)
-    text(guestShared[i].score, 690, 65 + i * 25)
-    text(guestShared[i].progress, 760, 65 + i * 25)
+    fill(guestShared[i].status[1])
+    rectMode(CORNER)
+    rect(560, 47.5 + i * 25, 120, 25, 5)
+    fill(250)
+    text(guestShared[i].status[0], 565, 65 + i * 25)
+    text(guestShared[i].username, 685, 65 + i * 25)
+    text(guestShared[i].score, 835, 65 + i * 25)
+    text(guestShared[i].progress, 905, 65 + i * 25)
     pop()
   }
 }
