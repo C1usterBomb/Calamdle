@@ -340,7 +340,7 @@ function draw() {
               playersLoaded++
             }
           }
-          if(playersLoaded == guestShared.length) {
+          if (playersLoaded == guestShared.length) {
             partyEmit("started")
           }
         }
@@ -356,6 +356,18 @@ function guess() {
   if (selectedGuessIndex != -1) {
     guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
     guessIndexes.push(selectedGuessIndex);
+
+    let count = 0
+    for (let i = 0; i < guessList.getColumnCount(); i++) {
+      if (guessList.getRow(guessList.getRowCount() - 1).getString(i) == chosenItem.getRow(0).getString(i)) {
+        count++
+      }
+    }
+    if (count > myShared.foundCategories) {
+      myShared.foundCategories = count
+      myShared.progress = count / chosenItem.getColumnCount()
+    }
+
     if (connected) {
       myShared.lastChat[0] = ""
       myShared.lastChat[1] = ""
@@ -768,7 +780,7 @@ function joinPlayer() {
   pop()
 
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
-  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, loaded: false, status: ["Not playing", 'rgba(255, 0, 0, 0.50)'], score: 0, progress: 0.0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
+  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, loaded: false, status: ["Not playing", 'rgba(255, 0, 0, 0.50)'], score: 0, progress: 0, foundCategories: 0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
   guestShared = partyLoadGuestShareds()
 }
@@ -887,9 +899,9 @@ function startNewRound() {
 
 function roundStarted() {
   guessButton.draw();
-  myShared.status[0] = "Playing"  
+  myShared.status[0] = "Playing"
   myShared.status[1] = 'rgba(0, 255, 0, 0.20)'
-  if(partyIsHost()) {
+  if (partyIsHost()) {
     shared.gameStarted = true;
   }
 }
@@ -929,12 +941,14 @@ function drawChat() {
 }
 
 function updateScoreboard() {
-  if(shared.gameStarted) {
+  if (shared.gameStarted) {
     if (partyIsHost()) {
       shared.timePassed++
     }
-    if (myShared.score > 0) {
-      myShared.score = 10000 - shared.timePassed - (myShared.guesses.length * 500)
+    if (myShared.score > 0 && myShared.progress < 1) {
+      myShared.score = 10000 - Math.round(shared.timePassed / 4) - (myShared.guesses.length * 500)
+    } else if (myShared.score < 0) {
+      myShared.score = 0
     }
   }
 }
@@ -986,11 +1000,31 @@ function drawScoreboard() {
     fill(guestShared[i].status[1])
     rectMode(CORNER)
     rect(560, 47.5 + i * 25, 120, 25, 5)
+    //Score ranks (subject to change)
+    if (guestShared[i].score > 9000 && guestShared[i].score <= 10000) {
+      fill('rgba(0, 255, 255, 1)')
+      text("X", 880, 65 + i * 25)
+    } else if (guestShared[i].score > 7500 && guestShared[i].score <= 9000) {
+      fill('rgba(255, 255, 0, 1)')
+      text("S", 880, 65 + i * 25)
+    } else if (guestShared[i].score > 6000 && guestShared[i].score <= 7500) {
+      fill('rgba(0, 255, 0, 1)')
+      text("A", 880, 65 + i * 25)
+    } else if (guestShared[i].score > 4000 && guestShared[i].score <= 6000) {
+      fill('rgba(0, 0, 255, 1)')
+      text("B", 880, 65 + i * 25)
+    } else if (guestShared[i].score > 2000 && guestShared[i].score <= 4000) {
+      fill('rgba(0, 110, 170, 1)')
+      text("C", 880, 65 + i * 25)
+    } else if (guestShared[i].score >= 0 && guestShared[i].score <= 2000) {
+      fill('rgba(255, 0, 0, 1)')
+      text("F", 880, 65 + i * 25)
+    }
     fill(250)
     text(guestShared[i].status[0], 565, 65 + i * 25)
     text(guestShared[i].username, 685, 65 + i * 25)
     text(guestShared[i].score, 835, 65 + i * 25)
-    text(guestShared[i].progress, 905, 65 + i * 25)
+    text(Math.round(guestShared[i].progress * 100) + "%", 905, 65 + i * 25)
     pop()
   }
 }
