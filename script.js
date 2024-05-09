@@ -994,7 +994,7 @@ function startNewRound() {
     shared.gameInProgress = true;
     shared.chat = [];
     chosenIndex = int(random(0, itemCount));
-    chosenItem.removeRow(0)
+    // chosenItem.removeRow(0)
     chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
     shared.answer = chosenItem.getRow(0).getString(0);
     print(shared.answer)
