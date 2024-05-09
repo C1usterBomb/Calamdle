@@ -52,8 +52,8 @@ function preload() {
   rarity = [["White", "#ffffff"], ["Blue", "#9696ff"], ["Green", "#96ff96"], ["Orange", "#ffc896"], ["Light Red", "#ff9696"], ["Pink", "#ff96ff"], ["Light Purple", "#d2a0ff"], ["Lime", "#96ff0a"], ["Yellow", "#ffff0a"], ["Cyan", "#05c8ff"], ["Red", "#ff2864"], ["Purple", "#b428ff"], ["Turquoise", "#00ffc8"], ["Pure Green", "#00ff00"], ["Dark Blue", "#2b60de"], ["Violet", "#6c2dc7"], ["Hot Pink", "#ff00ff"]];
   guessList = loadTable("guessList.csv", "csv", "header");
   chosenItem = loadTable("chosenItem.csv", "csv", "header");
-  // list = loadTable("calamityWeapons.csv", "csv", "header");
-  list = loadTable("terrariaWeapons.csv", "csv", "header");
+  list = loadTable("calamityWeapons.csv", "csv", "header");
+  // list = loadTable("terrariaWeapons.csv", "csv", "header");
   //list2 = loadTable("calamityWeaponsAltTest.csv", "csv", "header");
   itemTables.push(list);
   //itemTables.push(list2);
@@ -533,37 +533,37 @@ function windowResized() {
   displayGuesses();
 }
 // adriens codde
-// function displayGuesses() {
-//   if (guessList.getRowCount() > 0) {
-//     drawColumnTitles(["Item", "Name", "Damage Type", "Damage", "Knockback", "Speed", "Rarity", "Autoswing", "Material", "Dedication"], 55, guessXShift)
-//     drawImageGuessBox(0);
-//     drawStringGuessBox("name", 1);
-//     drawStringGuessBox("class", 2);
-//     drawNumberGuessBox("damage", 3);
-//     drawStringNumberGuessBox("knockback", 4, knockback);
-//     drawStringNumberGuessBox("speed", 5, speedAttack);
-//     drawColoredStringNumberGuessBox("rarityid", 6, rarity);
-//     drawBooleanGuessBox("autoswing", 7);
-//     drawBooleanGuessBox("material", 8);
-//     drawStringGuessBox("dedication", 9);
-//   }
-// }
-
 function displayGuesses() {
   if (guessList.getRowCount() > 0) {
-    drawColumnTitles(["Name", "Damage Type", "Damage", "Knockback", "Speed", "Rarity", "Autoswing", "Material", "Obtained 1", "Obtained 2"], 55, guessXShift)
-    drawStringGuessBox("name", 0);
-    drawStringGuessBox("class", 1);
-    drawNumberGuessBox("damage", 2);
-    drawStringNumberGuessBox("knockback", 3, knockback);
-    drawStringNumberGuessBox("speed", 4, speedAttack);
-    drawColoredStringNumberGuessBox("rarityid", 5, rarity);
-    drawBooleanGuessBox("autoswing", 6);
-    drawBooleanGuessBox("material", 7);
-    drawStringGuessBox("obtained1", 8);
-    drawStringGuessBox("obtained2", 9);
+    drawColumnTitles(["Item", "Name", "Damage Type", "Damage", "Knockback", "Speed", "Rarity", "Autoswing", "Material", "Dedication"], 55, guessXShift)
+    drawImageGuessBox(0);
+    drawStringGuessBox("name", 1);
+    drawStringGuessBox("class", 2);
+    drawNumberGuessBox("damage", 3);
+    drawStringNumberGuessBox("knockback", 4, knockback);
+    drawStringNumberGuessBox("speed", 5, speedAttack);
+    drawColoredStringNumberGuessBox("rarityid", 6, rarity);
+    drawBooleanGuessBox("autoswing", 7);
+    drawBooleanGuessBox("material", 8);
+    drawStringGuessBox("dedication", 9);
   }
 }
+
+// function displayGuesses() {
+//   if (guessList.getRowCount() > 0) {
+//     drawColumnTitles(["Name", "Damage Type", "Damage", "Knockback", "Speed", "Rarity", "Autoswing", "Material", "Obtained 1", "Obtained 2"], 55, guessXShift)
+//     drawStringGuessBox("name", 0);
+//     drawStringGuessBox("class", 1);
+//     drawNumberGuessBox("damage", 2);
+//     drawStringNumberGuessBox("knockback", 3, knockback);
+//     drawStringNumberGuessBox("speed", 4, speedAttack);
+//     drawColoredStringNumberGuessBox("rarityid", 5, rarity);
+//     drawBooleanGuessBox("autoswing", 6);
+//     drawBooleanGuessBox("material", 7);
+//     drawStringGuessBox("obtained1", 8);
+//     drawStringGuessBox("obtained2", 9);
+//   }
+// }
 
 function drawColumnTitles(titles, xInitial, xIncrement) {
   push()
