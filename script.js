@@ -305,9 +305,9 @@ function draw() {
         resetButton.show();
         menuButton.show();
       } else {
-        guessButton.draw();
         displayGuesses()
       }
+      guessButton.draw();
     }
     if (multiplayerEnabled) {
       if (connected) {
