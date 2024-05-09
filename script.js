@@ -357,18 +357,21 @@ function guess() {
     guessList.addRow(itemTables[orgItemArray[selectedGuessIndex].value()].findRow(selectedGuess, 'name'));
     guessIndexes.push(selectedGuessIndex);
 
-    let count = 0
-    for (let i = 0; i < guessList.getColumnCount(); i++) {
-      if (guessList.getRow(guessList.getRowCount() - 1).getString(i) == chosenItem.getRow(0).getString(i)) {
-        count++
-      }
-    }
-    if (count > myShared.foundCategories) {
-      myShared.foundCategories = count
-      myShared.progress = count / chosenItem.getColumnCount()
-    }
-
     if (connected) {
+      let count = 0
+      for (let i = 0; i < guessList.getColumnCount(); i++) {
+        if (guessList.getRow(guessList.getRowCount() - 1).getString(i) == chosenItem.getRow(0).getString(i)) {
+          count++
+        }
+      }
+      if (count > myShared.foundCategories) {
+        myShared.foundCategories = count
+        myShared.progress = count / chosenItem.getColumnCount()
+      }
+
+      myShared.accuracy.push(count)
+      print(myShared.accuracy)
+      
       myShared.lastChat[0] = ""
       myShared.lastChat[1] = ""
       myShared.guesses.unshift(list.getRow(selectedGuessIndex).getString(0))
@@ -409,8 +412,10 @@ function drawSearchArea() {
   else if (scrollPos > (itemCount - currentWindowItemCount) * 50) {
     scrollPos = (itemCount - currentWindowItemCount) * 50;
   }
-  if (shared.gameStarted) {
-    guessButton.draw();
+  if(connected) {
+    if (shared.gameStarted) {
+      guessButton.draw();
+    }
   }
   // guessButton.draw();
   strokeWeight(2);
@@ -780,7 +785,7 @@ function joinPlayer() {
   pop()
 
   partyConnect("wss://demoserver.p5party.org", "wordleRoomThingy")
-  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, loaded: false, status: ["Not playing", 'rgba(255, 0, 0, 0.50)'], score: 0, progress: 0, foundCategories: 0, guesses: [], lastChat: ["", ""] }, mySharedLoaded)
+  myShared = partyLoadMyShared({ player: 0, username: "", inGame: false, loaded: false, status: ["Not playing", 'rgba(255, 0, 0, 0.50)'], progress: 0, foundCategories: 0, score: 0, guesses: [], accuracy: [], hints: 0, lastChat: ["", ""] }, mySharedLoaded)
   shared = partyLoadShared("shared", {}, sharedLoaded)
   guestShared = partyLoadGuestShareds()
 }
@@ -791,7 +796,6 @@ function sharedLoaded() {
   shared.answer = shared.answer || ""
   shared.gameInProgress = shared.gameInProgress || false;
   shared.gameStarted = shared.gameStarted || false;
-  shared.timePassed = shared.timePassed || 0;
   partySubscribe("start", startNewRound)
   partySubscribe("started", roundStarted)
 
@@ -873,7 +877,6 @@ function startNewRound() {
   pop()
   if (partyIsHost()) {
     shared.gameInProgress = true;
-    shared.timePassed = 0
     shared.chat = [];
     chosenIndex = int(random(0, itemCount));
     chosenItem.removeRow(0)
@@ -954,11 +957,8 @@ function drawChat() {
 
 function updateScoreboard() {
   if (shared.gameStarted) {
-    if (partyIsHost()) {
-      shared.timePassed++
-    }
     if (myShared.score > 0 && myShared.progress < 1) {
-      myShared.score = 10000 - Math.round(shared.timePassed / 5) - (myShared.guesses.length * 250)
+      myShared.score = 10000 - (myShared.guesses.length * 250)
     } else if (myShared.score < 0) {
       myShared.score = 0
     }
