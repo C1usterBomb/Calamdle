@@ -583,10 +583,18 @@ function drawColumnTitles(titles, xInitial, xIncrement) {
 
 function drawStringGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
-      fill('green')
-    } else {
-      fill('red')
+    if(!connected) {
+      if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
     }
     push()
     rectMode(CENTER)
@@ -611,10 +619,18 @@ function drawStringGuessBox(category, num) {
 
 function drawBooleanGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if (guessList.getRow(i).getNum(category) == chosenItem.getRow(0).getNum(category)) {
-      fill('green')
-    } else {
-      fill('red')
+    if(!connected) {
+      if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
     }
     push()
     rectMode(CENTER)
@@ -638,10 +654,18 @@ function drawBooleanGuessBox(category, num) {
 
 function drawNumberGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if (guessList.getRow(i).getNum(category) == chosenItem.getRow(0).getNum(category)) {
-      fill('green')
-    } else {
-      fill('red')
+    if(!connected) {
+      if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
     }
     push()
     rectMode(CENTER)
@@ -654,16 +678,30 @@ function drawNumberGuessBox(category, num) {
     textSize(20)
     fill(250)
     noStroke()
-    if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
-      text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
-      textFont('system');
-      text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
-      text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
-      textFont('system');
-      text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else {
-      text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+    if(!connected) {
+      if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+        textFont('system');
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+        textFont('system');
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getNum(category) > list.findRow(shared.answer, "name").getString(category)) {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+        textFont('system');
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < list.findRow(shared.answer, "name").getString(category)) {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+        textFont('system');
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
+      }
     }
     pop()
   }
@@ -671,10 +709,18 @@ function drawNumberGuessBox(category, num) {
 
 function drawColoredStringNumberGuessBox(category, num, options) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if (guessList.getRow(i).getNum(category) == chosenItem.getRow(0).getNum(category)) {
-      fill('green');
-    } else {
-      fill('red');
+    if(!connected) {
+      if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
     }
     push();
     rectMode(CENTER);
@@ -688,25 +734,48 @@ function drawColoredStringNumberGuessBox(category, num, options) {
     strokeWeight(3);
     stroke(10);
     strokeJoin(ROUND);
-    if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
-      fill(options[guessList.getRow(i).getNum(category)][1]);
-      text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-      textFont('system');
-      strokeWeight(0);
-      fill(255);
-      textSize(20);
-      text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
-      fill(options[guessList.getRow(i).getNum(category)][1]);
-      text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-      textFont('system');
-      strokeWeight(0);
-      fill(255);
-      textSize(20);
-      text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else {
-      fill(options[guessList.getRow(i).getNum(category)][1]);
-      text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+    if(!connected) {
+      if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getNum(category) > list.findRow(shared.answer, "name").getString(category)) {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < list.findRow(shared.answer, "name").getString(category)) {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        fill(options[guessList.getRow(i).getNum(category)][1]);
+        text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      }
     }
     pop()
   }
@@ -714,10 +783,18 @@ function drawColoredStringNumberGuessBox(category, num, options) {
 
 function drawStringNumberGuessBox(category, num, options) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if (guessList.getRow(i).getNum(category) == chosenItem.getRow(0).getNum(category)) {
-      fill('green');
-    } else {
-      fill('red');
+    if(!connected) {
+      if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
+    } else if(connected) {
+      if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
+        fill('green')
+      } else {
+        fill('red')
+      }
     }
     push();
     rectMode(CENTER);
@@ -730,22 +807,42 @@ function drawStringNumberGuessBox(category, num, options) {
     textSize(20);
     fill(255);
     strokeJoin(ROUND);
-    if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
-      text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-      textFont('system');
-      strokeWeight(0);
-      fill(255);
-      textSize(20);
-      text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
-      text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-      textFont('system');
-      strokeWeight(0);
-      fill(255);
-      textSize(20);
-      text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
-    } else {
-      text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+    if(!connected) {
+      if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < chosenItem.getRow(0).getNum(category)) {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      }
+    } else if (connected) {
+      if (guessList.getRow(i).getNum(category) > list.findRow(shared.answer, "name").getString(category)) {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↓", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else if (guessList.getRow(i).getNum(category) < list.findRow(shared.answer, "name").getString(category)) {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+        textFont('system');
+        strokeWeight(0);
+        fill(255);
+        textSize(20);
+        text("↑", guessShift + 65 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      } else {
+        text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
+      }
     }
     pop()
   }
