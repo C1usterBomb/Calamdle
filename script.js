@@ -409,7 +409,7 @@ function drawSearchArea() {
   else if (scrollPos > (itemCount - currentWindowItemCount) * 50) {
     scrollPos = (itemCount - currentWindowItemCount) * 50;
   }
-  if (imgLoadCount == orgItemCount) {
+  if (shared.gameStarted) {
     guessButton.draw();
   }
   // guessButton.draw();
@@ -859,6 +859,18 @@ function startNewRound() {
   multiplayerGameStarted = true
   search.show();
   scrollBar.show();
+  push()
+  strokeWeight(1)
+  fill('green')
+  rect(195, 0, 100, 20, 5)
+  pop()
+  push()
+  textFont(terrariaFont)
+  textSize(16)
+  fill(250)
+  noStroke()
+  text("Connected!!", 208, 14)
+  pop()
   if (partyIsHost()) {
     shared.gameInProgress = true;
     shared.timePassed = 0
@@ -946,7 +958,7 @@ function updateScoreboard() {
       shared.timePassed++
     }
     if (myShared.score > 0 && myShared.progress < 1) {
-      myShared.score = 10000 - Math.round(shared.timePassed / 4) - (myShared.guesses.length * 500)
+      myShared.score = 10000 - Math.round(shared.timePassed / 5) - (myShared.guesses.length * 250)
     } else if (myShared.score < 0) {
       myShared.score = 0
     }
