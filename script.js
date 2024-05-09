@@ -196,10 +196,11 @@ function startGame() {
   imgArray = orgImgArray;
   orgItemCount = orgItemArray.length;
   itemCount = orgItemArray.length;
-  chosenIndex = int(random(0, itemCount));
-  chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
-  print(chosenItem.getRow(0).getString(0));
-
+  if(!connected) {
+    chosenIndex = int(random(0, itemCount));
+    chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
+    print(chosenItem.getRow(0).getString(0));
+  }
   // showInputs()
 }
 
