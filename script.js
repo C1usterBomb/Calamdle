@@ -196,7 +196,7 @@ function startGame() {
   imgArray = orgImgArray;
   orgItemCount = orgItemArray.length;
   itemCount = orgItemArray.length;
-  if(!connected) {
+  if (!connected) {
     chosenIndex = int(random(0, itemCount));
     chosenItem.addRow(itemTables[orgItemArray[chosenIndex].value()].findRow(orgItemArray[chosenIndex].html(), 'name'));
     print(chosenItem.getRow(0).getString(0));
@@ -362,7 +362,7 @@ function guess() {
     if (connected) {
       let count = 0
       for (let i = 0; i < guessList.getColumnCount(); i++) {
-        if (guessList.getRow(guessList.getRowCount() - 1).getString(i) == chosenItem.getRow(0).getString(i)) {
+        if (guessList.getRow(guessList.getRowCount() - 1).getString(i) == list.findRow(shared.answer, "name").getString(i)) {
           count++
         }
       }
@@ -373,7 +373,7 @@ function guess() {
 
       myShared.accuracy.push(count)
       print(myShared.accuracy)
-      
+
       myShared.lastChat[0] = ""
       myShared.lastChat[1] = ""
       myShared.guesses.unshift(list.getRow(selectedGuessIndex).getString(0))
@@ -388,9 +388,17 @@ function guess() {
     selectedGuessIndex = -1;
     selectedGuess = "";
     search.value("");
-    for (i = 0; i < guessList.getRowCount(); i++) {
-      if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
-        rarityFound = true;
+    if (!connected) {
+      for (i = 0; i < guessList.getRowCount(); i++) {
+        if (guessList.get(i, "rarityid") == chosenItem.get(0, "rarityid")) {
+          rarityFound = true;
+        }
+      }
+    } else if (connected) {
+      for (i = 0; i < guessList.getRowCount(); i++) {
+        if (guessList.get(i, "rarityid") == list.findRow(shared.answer, "name").getString("rarityid")) {
+          rarityFound = true;
+        }
       }
     }
     searchAdjust();
@@ -414,7 +422,7 @@ function drawSearchArea() {
   else if (scrollPos > (itemCount - currentWindowItemCount) * 50) {
     scrollPos = (itemCount - currentWindowItemCount) * 50;
   }
-  if(connected) {
+  if (connected) {
     if (shared.gameStarted) {
       guessButton.draw();
     }
@@ -584,13 +592,13 @@ function drawColumnTitles(titles, xInitial, xIncrement) {
 
 function drawStringGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
         fill('green')
       } else {
         fill('red')
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
         fill('green')
       } else {
@@ -620,13 +628,13 @@ function drawStringGuessBox(category, num) {
 
 function drawBooleanGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
         fill('green')
       } else {
         fill('red')
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
         fill('green')
       } else {
@@ -655,13 +663,13 @@ function drawBooleanGuessBox(category, num) {
 
 function drawNumberGuessBox(category, num) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
         fill('green')
       } else {
         fill('red')
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
         fill('green')
       } else {
@@ -679,7 +687,7 @@ function drawNumberGuessBox(category, num) {
     textSize(20)
     fill(250)
     noStroke()
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
         text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
         textFont('system');
@@ -691,7 +699,7 @@ function drawNumberGuessBox(category, num) {
       } else {
         text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getNum(category) > list.findRow(shared.answer, "name").getString(category)) {
         text(guessList.getRow(i).getNum(category), guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70)
         textFont('system');
@@ -710,13 +718,13 @@ function drawNumberGuessBox(category, num) {
 
 function drawColoredStringNumberGuessBox(category, num, options) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
         fill('green')
       } else {
         fill('red')
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
         fill('green')
       } else {
@@ -735,7 +743,7 @@ function drawColoredStringNumberGuessBox(category, num, options) {
     strokeWeight(3);
     stroke(10);
     strokeJoin(ROUND);
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
         fill(options[guessList.getRow(i).getNum(category)][1]);
         text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
@@ -756,7 +764,7 @@ function drawColoredStringNumberGuessBox(category, num, options) {
         fill(options[guessList.getRow(i).getNum(category)][1]);
         text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getNum(category) > list.findRow(shared.answer, "name").getString(category)) {
         fill(options[guessList.getRow(i).getNum(category)][1]);
         text(options[guessList.getRow(i).getNum(category)][0], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
@@ -784,13 +792,13 @@ function drawColoredStringNumberGuessBox(category, num, options) {
 
 function drawStringNumberGuessBox(category, num, options) {
   for (let i = guessList.getRowCount() - 1; i > -1; i--) {
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getString(category) == chosenItem.getRow(0).getString(category)) {
         fill('green')
       } else {
         fill('red')
       }
-    } else if(connected) {
+    } else if (connected) {
       if (guessList.getRow(i).getString(category) == list.findRow(shared.answer, "name").getString(category)) {
         fill('green')
       } else {
@@ -808,7 +816,7 @@ function drawStringNumberGuessBox(category, num, options) {
     textSize(20);
     fill(255);
     strokeJoin(ROUND);
-    if(!connected) {
+    if (!connected) {
       if (guessList.getRow(i).getNum(category) > chosenItem.getRow(0).getNum(category)) {
         text(options[guessList.getRow(i).getNum(category)], guessShift + 30 + num * guessXShift, 275 + (guessList.getRowCount() - 1 - i) * guessBoxSize * 0.85, 50, 70);
         textFont('system');
